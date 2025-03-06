@@ -1,21 +1,65 @@
-<!DOCTYPE html>
-<html>
+{% comment %} <!DOCTYPE html>
+<html lang="en">
 <head>
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Login</title>
 </head>
-<body class="flex items-center justify-center h-screen bg-gray-100">
-    <div class="bg-white p-8 rounded-lg shadow-md w-96">
+<body class="flex items-center justify-center h-screen bg-green-200 relative">
+
+    <!-- Logo at Top Right -->
+    <div class="absolute top-4 left-4">
+        <img src="https://i.postimg.cc/BvkPMHQZ/obsess.jpg" alt="Logo" class="h-10">
+    </div>
+
+    <!-- Login Container -->
+    <div class="bg-green-500 p-8 rounded-lg shadow-md w-96 text-white">
         <h2 class="text-2xl font-bold text-center mb-4">Login</h2>
         <form method="POST" class="space-y-4">
             {% csrf_token %}
-            <input type="text" name="username" placeholder="Username" required class="w-full p-2 border border-gray-300 rounded-lg">
-            <input type="password" name="password" placeholder="Password" required class="w-full p-2 border border-gray-300 rounded-lg">
-            <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg">Login</button>
+            <input type="text" name="username" placeholder="Username" required 
+                class="w-full p-2 border border-gray-300 rounded-lg text-gray-900">
+            <input type="password" name="password" placeholder="Password" required 
+                class="w-full p-2 border border-gray-300 rounded-lg text-gray-900">
+            <button type="submit" class="w-full bg-white text-green-600 py-2 rounded-lg font-bold">Login</button>
         </form>
         <p class="text-center mt-4">
-            <a href="{% url 'register' %}" class="text-blue-500">Don't have an account? Register</a>
+            <a href="{% url 'register' %}" class="text-white underline">Don't have an account? Register</a>
         </p>
     </div>
+
+</body>
+</html> {% endcomment %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Login</title>
+</head>
+<body class="flex items-center justify-center h-screen bg-cover bg-top relative" 
+      style="background-image: url('https://i.postimg.cc/GmvTKcfm/bg.png');">
+
+    <!-- Logo at Top Left -->
+    <div class="absolute top-4 left-4">
+        <img src="https://i.postimg.cc/BvkPMHQZ/obsess.jpg" alt="Logo" class="h-10">
+    </div>
+
+    <!-- Login Container -->
+    <div class="bg-green-500 bg-opacity-90 p-8 rounded-lg shadow-md w-96 text-white">
+        <h2 class="text-2xl font-bold text-center mb-4">Login</h2>
+        <form method="POST" class="space-y-4">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" required 
+                class="w-full p-2 border border-gray-300 rounded-lg text-gray-900">
+            <input type="password" name="password" placeholder="Password" required 
+                class="w-full p-2 border border-gray-300 rounded-lg text-gray-900">
+            <button type="submit" class="w-full bg-white text-green-600 py-2 rounded-lg font-bold">Login</button>
+        </form>
+        <p class="text-center mt-4">
+            <a href="{% url 'register' %}" class="text-white underline">Don't have an account? Register</a>
+        </p>
+    </div>
+
 </body>
 </html>

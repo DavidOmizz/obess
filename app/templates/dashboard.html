@@ -1,10 +1,15 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html>
 <head>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Dashboard</title>
 </head>
 <body class="bg-gray-100">
+    <marquee behavior="" direction="" class="bg-green-500 text-white p-2">
+        Welcome to Bamboo, if any assistance is needed, please seek help from our customer service. Have a nice day!
+    </marquee>
+    
     <nav class="bg-white shadow-md p-4 flex justify-between items-center">
         <!-- <div class="text-xl font-bold">MyLogo</div> -->
         <div>
@@ -49,7 +54,8 @@
                 <p>FAQ</p>
             </div>
             <div class="bg-gradient-to-br from-green-600 to-black text-white p-4 rounded-lg shadow-md">
-                <img src="https://via.placeholder.com/50" class="mx-auto mb-2" alt="Icon">
+                <!-- <img src="https://via.placeholder.com/50" class="mx-auto mb-2" alt="Icon"> -->
+                <i class="fa fa-info" aria-hidden="true"></i>
                 <p>About Us</p>
             </div>
             
@@ -68,5 +74,94 @@
     <footer class="bg-white mt-10 p-4 text-center shadow-md">
         <p>&copy; 2024 MyCompany. All rights reserved.</p>
     </footer>
+</body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Dashboard</title>
+</head>
+<body class="bg-gray-100">
+    
+    <!-- Marquee -->
+    <marquee behavior="" direction="" class="bg-green-500 text-white p-2">
+        Welcome to Bamboo, if any assistance is needed, please seek help from our customer service. Have a nice day!
+    </marquee>
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md p-4 flex justify-between items-center">
+        <div>
+            <img src="https://i.postimg.cc/BvkPMHQZ/obsess.jpg" alt="Logo" class="h-10">
+        </div>
+        <div>
+            <span class="mr-4">Welcome, {{ user.username }}</span>
+            <a href="{% url 'logout' %}" class="text-red-500">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Background Image Container -->
+    <div class="min-h-screen bg-cover bg-top text-white p-10"
+        style="background-image: url('https://i.postimg.cc/GmvTKcfm/bg.png');">
+        
+        <div class="container mx-auto mt-10">
+            <h2 class="text-2xl font-bold text-center mb-6 text-black">Quick Links</h2>
+            <div class="grid grid-cols-4 gap-6 text-center">
+                <div class="bg-gradient-to-br from-green-600 to-black p-4 rounded-lg shadow-md">
+                    <img src="https://via.placeholder.com/50" class="mx-auto mb-2" alt="Icon">
+                    <p>Downline Team</p>
+                </div>
+                <div class="bg-gradient-to-br from-green-600 to-black p-4 rounded-lg shadow-md">
+                    <!-- <img src="https://via.placeholder.com/50" class="mx-auto mb-2" alt="Icon"> -->
+                    <i class="fa fa-certificate" aria-hidden="true"></i>
+                    <p>Certificate</p>
+                </div>
+                <div class="bg-gradient-to-br from-green-600 to-black p-4 rounded-lg shadow-md">
+                    <!-- <img src="https://via.placeholder.com/50" class="mx-auto mb-2" alt="Icon"> -->
+                    <i class="fa fa-print" aria-hidden="true"></i>
+                    <p>Withdraw</p>
+                </div>
+                <div class="bg-gradient-to-br from-green-600 to-black p-4 rounded-lg shadow-md">
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                    <p>Deposit</p>
+                </div>
+                <div class="bg-gradient-to-br from-green-600 to-black p-4 rounded-lg shadow-md">
+                    <i class="fa fa-check-square" aria-hidden="true"></i>
+                    <p>Terms & Conditions</p>
+                </div>
+                <div class="bg-gradient-to-br from-green-600 to-black p-4 rounded-lg shadow-md">
+                    <img src="https://via.placeholder.com/50" class="mx-auto mb-2" alt="Icon">
+                    <p>Latest Campaign</p>
+                </div>
+                <div class="bg-gradient-to-br from-green-600 to-black p-4 rounded-lg shadow-md">
+                    <img src="https://via.placeholder.com/50" class="mx-auto mb-2" alt="Icon">
+                    <p>FAQ</p>
+                </div>
+                <div class="bg-gradient-to-br from-green-600 to-black p-4 rounded-lg shadow-md">
+                    <!-- <img src="https://via.placeholder.com/50" class="mx-auto mb-2" alt="Icon"> -->
+                    <i class="fa fa-info" aria-hidden="true"></i>
+                    <p>About Us</p>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-center mb-6 text-black">Our Products</h2>
+            <div class="grid grid-cols-3 gap-6">
+                {% for product in products %}
+                <div class="bg-gradient-to-br from-green-600 to-black p-6 rounded-lg shadow-md text-center">
+                    <h3 class="text-xl font-bold">{{ product.name }}</h3>
+                    <p>{{ product.price }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-10 p-4 text-center shadow-md">
+        <p>&copy; 2024 MyCompany. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
