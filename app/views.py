@@ -101,3 +101,10 @@ def dashboard(request):
     ]
     
     return render(request, "dashboard.html", {"user": request.user, "products": products})
+
+def certificate(request):
+    return render(request, "certificate.html")
+def withdraw(request):
+    return render(request, "withdraw.html")
+def deposit(request):
+    return render(request, "deposit.html")

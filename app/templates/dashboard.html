@@ -1,4 +1,4 @@
-{% comment %} <!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,7 +11,6 @@
     </marquee>
     
     <nav class="bg-white shadow-md p-4 flex justify-between items-center">
-        <!-- <div class="text-xl font-bold">MyLogo</div> -->
         <div>
             <img src="https://i.postimg.cc/BvkPMHQZ/obsess.jpg" alt="Logo" class="h-10">
         </div>
@@ -27,34 +26,29 @@
         <div class="grid grid-cols-4 gap-6 text-center">
             <div class="bg-gradient-to-br from-green-600 to-black text-white p-4 rounded-lg shadow-md">
                 <img src="https://via.placeholder.com/50" class="mx-auto mb-2" alt="Icon">
-                <p>Downline Team</p>
-            </div>
-            <div class="bg-gradient-to-br from-green-600 to-black text-white p-4 rounded-lg shadow-md">
-                <img src="https://via.placeholder.com/50" class="mx-auto mb-2" alt="Icon">
-                <p>Certificate</p>
+                <p>Certificates</p>
             </div>
             <div class="bg-gradient-to-br from-green-600 to-black text-white p-4 rounded-lg shadow-md">
                 <img src="https://via.placeholder.com/50" class="mx-auto mb-2" alt="Icon">
                 <p>Withdraw</p>
             </div>
-            <div class="bg-gradient-to-br from-green-600 to-black text-white p-4 rounded-lg shadow-md">
+            <div class="bg-gradient-to-br from-green-600 to-black text-white rounded-lg shadow-md">
                 <img src="https://via.placeholder.com/50" class="mx-auto mb-2" alt="Icon">
                 <p>Deposit</p>
             </div>
-            <div class="bg-gradient-to-br from-green-600 to-black text-white p-4 rounded-lg shadow-md">
-                <img src="https://via.placeholder.com/50" class="mx-auto mb-2" alt="Icon">
+            <div class="bg-gradient-to-br from-green-600 to-black text-white rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/50" class="" alt="Icon">
                 <p>Terms & Conditions</p>
             </div>
-            <div class="bg-gradient-to-br from-green-600 to-black text-white p-4 rounded-lg shadow-md">
+            <div class="bg-gradient-to-br from-green-600 to-black text-white rounded-lg shadow-md">
                 <img src="https://via.placeholder.com/50" class="mx-auto mb-2" alt="Icon">
                 <p>Latest Campaign</p>
             </div>
-            <div class="bg-gradient-to-br from-green-600 to-black text-white p-4 rounded-lg shadow-md">
+            <div class="bg-gradient-to-br from-green-600 to-black text-white rounded-lg shadow-md">
                 <img src="https://via.placeholder.com/50" class="mx-auto mb-2" alt="Icon">
                 <p>FAQ</p>
             </div>
             <div class="bg-gradient-to-br from-green-600 to-black text-white p-4 rounded-lg shadow-md">
-                <!-- <img src="https://via.placeholder.com/50" class="mx-auto mb-2" alt="Icon"> -->
                 <i class="fa fa-info" aria-hidden="true"></i>
                 <p>About Us</p>
             </div>
@@ -75,13 +69,15 @@
         <p>&copy; 2024 MyCompany. All rights reserved.</p>
     </footer>
 </body>
-</html> {% endcomment %}
+</html> -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <title>Dashboard</title>
 </head>
 <body class="bg-gray-100">
@@ -108,45 +104,133 @@
         
         <div class="container mx-auto mt-10">
             <h2 class="text-2xl font-bold text-center mb-8 text-black">Quick Links</h2>
-            <div class="grid grid-cols-4 gap-6 text-center mb-8">
-                <!-- <div class="bg-gradient-to-br from-green-600 to-black p-4 rounded-lg shadow-md">
-                    <img src="https://via.placeholder.com/50" class="mx-auto mb-2" alt="Icon">
-                    <p>Downline Team</p>
-                </div> -->
-                <div class="bg-gradient-to-br from-green-600 to-black p-4 rounded-lg shadow-md">
-                    <!-- <img src="https://via.placeholder.com/50" class="mx-auto mb-2" alt="Icon"> -->
-                    <i class="fa fa-certificate" aria-hidden="true"></i>
-                    <p>Certificate</p>
+            
+
+            {% comment %} <div class="grid grid-cols-3 justify-center items-center text-center w-full">
+                <div class="flex flex-col items-center ">
+                    <div class="bg-black w-12 h-12 flex justify-center items-center rounded-full">
+                        <i class="fa fa-users text-white text-sm"></i>
+                    </div>
+                    <p class="mt-1 text-xs">Downline Team</p>
                 </div>
-                <div class="bg-gradient-to-br from-green-600 to-black p-4 rounded-lg shadow-md">
-                    <!-- <img src="https://via.placeholder.com/50" class="mx-auto mb-2" alt="Icon"> -->
-                    <i class="fa fa-print" aria-hidden="true"></i>
-                    <p>Withdraw</p>
+                
+                <div class="flex flex-col items-center ">
+                    <div class="bg-black w-12 h-12 flex justify-center items-center rounded-full">
+                        <i class="fa fa-certificate text-white text-sm"></i>
+                    </div>
+                    <p class="mt-1 text-xs">Certificate</p>
                 </div>
-                <div class="bg-gradient-to-br from-green-600 to-black p-4 rounded-lg shadow-md">
-                    <i class="fa fa-money-bill" aria-hidden="true"></i>
-                    <p>Deposit</p>
+            
+                <div class="flex flex-col items-center" >
+                    <div class="bg-black w-12 h-12 flex justify-center items-center rounded-full">
+                        <i class="fa fa-print text-white text-sm"></i>
+                    </div>
+                    <p class="mt-1 text-xs">Withdraw</p>
                 </div>
-                <div class="bg-gradient-to-br from-green-600 to-black p-4 rounded-lg shadow-md">
-                    <i class="fa fa-check-square" aria-hidden="true"></i>
-                    <p>Terms & Conditions</p>
+            
+                <div class="flex flex-col items-center">
+                    <div class="bg-black w-12 h-12 flex justify-center items-center rounded-full">
+                        <i class="fa fa-money-bill text-white text-sm"></i>
+                    </div>
+                    <p class="mt-1 text-xs">Deposit</p>
                 </div>
-                <div class="bg-gradient-to-br from-green-600 to-black p-4 rounded-lg shadow-md">
-                    <i class="fa fa-bullhorn" aria-hidden="true"></i>
-                    <p>Latest Campaign</p>
+            
+                <div class="flex flex-col items-center">
+                    <div class="bg-black w-12 h-12 flex justify-center items-center rounded-full">
+                        <i class="fa fa-file-alt text-white text-sm"></i>
+                    </div>
+                    <p class="mt-1 text-xs">Terms & Conditions</p>
                 </div>
-                <div class="bg-gradient-to-br from-green-600 to-black p-4 rounded-lg shadow-md">
-                    <i class="fa fa-question-circle" aria-hidden="true"></i>
-                    <p>FAQ</p>
+            
+                <div class="flex flex-col items-center">
+                    <div class="bg-black w-12 h-12 flex justify-center items-center rounded-full">
+                        <i class="fa fa-bullhorn text-white text-sm"></i>
+                    </div>
+                    <p class="mt-1 text-xs">Latest Campaign</p>
                 </div>
-                <div class="bg-gradient-to-br from-green-600 to-black p-4 rounded-lg shadow-md">
-                    <!-- <img src="https://via.placeholder.com/50" class="mx-auto mb-2" alt="Icon"> -->
-                    <i class="fa fa-info" aria-hidden="true"></i>
-                    <p>About Us</p>
+            
+                <div class="flex flex-col items-center">
+                    <div class="bg-black w-12 h-12 flex justify-center items-center rounded-full">
+                        <i class="fa fa-question-circle text-white text-sm"></i>
+                    </div>
+                    <p class="mt-1 text-xs">FAQ</p>
+                </div>
+            
+                <div class="flex flex-col items-center">
+                    <div class="bg-black w-12 h-12 flex justify-center items-center rounded-full">
+                        <i class="fa fa-info-circle text-white text-sm"></i>
+                    </div>
+                    <p class="mt-1 text-xs">About Us</p>
+                </div>
+            </div> {% endcomment %}
+            
+
+            <div class="flex justify-center items-center text-center mb-8 space-x-4">
+                <div class="">
+                    <i class="fa fa-certificate bg-black p-3 rounded-full" aria-hidden="true"></i>
+                    <p><a href="{% url 'certificate' %}">Certificate</a></p>
+
+                </div>
+                <div>
+                    <i class="fa fa-print bg-black p-3 rounded-full" aria-hidden="true"></i>
+                    <p><a href="{% url 'withdraw' %}">Withdraw</a></p>
+                </div>
+                <div>
+                    <i class="fa fa-money-bill bg-black p-3 rounded-full" aria-hidden="true"></i>
+                    <p><a href="{% url 'deposit' %}">Deposit</a></p>
+                </div>
+                <div>
+                    <i class="fa fa-check-square bg-black p-3 rounded-full" aria-hidden="true"></i>
+                    <p><a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Terms & Conditions</a></p>
+                    <!-- Scrollable modal -->
+                    <!-- Button trigger modal -->
+                </div>
+            </div>
+            <div class="flex justify-center items-center text-center mb-8 space-x-4">
+                <div>
+                    <i class="fa fa-bullhorn bg-black p-3 rounded-full" aria-hidden="true"></i>
+                    <p><a type='button' data-bs-toggle="modal" data-bs-target="#staticBackdrop1">Latest Campaign</a></p>
+                </div>
+                <div>
+                    <i class="fa fa-question-circle bg-black p-3 rounded-full" aria-hidden="true"></i>
+                    <p><a type='button' data-bs-toggle="modal" data-bs-target="#staticBackdrop2">FAQ</a></p>
+                </div>
+                <div>
+                    <i class="fa fa-info bg-black p-3 rounded-full" aria-hidden="true"></i>
+                    <p><a type='button' data-bs-toggle="modal" data-bs-target="#staticBackdrop3">About Us</a></p>
                 </div>
             </div>
 
-            <h2 class="text-2xl font-bold text-center mb-6 text-black">Our Products</h2>
+            <div class="flex justify-center items-center mb-8 space-x-4 mt-5">
+                <div class=" w-2/5 bg-white text-black shadow-md p-4 rounded-lg">
+                    <div class="flex justify-between">
+                        <h2>Vip Level</h2>
+                        <a href="">View More</a>
+                    </div>
+    
+                    <div class="flex">
+                        <img src="https://i.postimg.cc/02Mw19qn/level1-1703370234.jpg" alt="" width="50" height="50" class="m-3">
+                        <img src="https://i.postimg.cc/HnK88hbb/level2-1703370550.jpg" alt="" alt="" width="50" height="50" class="m-3">
+                        <img src="https://i.postimg.cc/59kCr6Dj/level3-1703370691.jpg" alt="" alt="" width="50" height="50" class="m-3">
+                        <img src="https://i.postimg.cc/rFBt87Vk/level4-1703370829.jpg" alt="" alt="" width="50" height="50" class="m-3">
+                        <img src="https://i.postimg.cc/Bbt160Pq/premium-user-1723759153.jpg" alt="" alt="" width="50" height="50" class="m-3">
+                    </div>
+                    <p><strong>
+                        Normal users receive general purpose data collection access.
+                        <br>
+                        ● Suitable for most data capture scenarios involving light to medium usage
+                        <br>
+                        ● Profit of 0.5% per product -40 tasks per set
+                        <br>
+                        ● Up to 120 optimise tasks per day
+                        <br>
+                        ● No access to other Premium features 
+                    </strong></p>
+                </div>
+            </div>
+            
+
+            <!-- <h2 class="text-2xl font-bold text-center mb-6 text-black">Our Products</h2>
             <div class="grid grid-cols-3 gap-6">
                 {% for product in products %}
                 <div class="bg-gradient-to-br from-green-600 to-black p-6 rounded-lg shadow-md text-center">
@@ -154,14 +238,239 @@
                     <p>{{ product.price }}</p>
                 </div>
                 {% endfor %}
+            </div> -->
+        </div>
+
+         <!-- Footer -->
+        <footer class=" mt-10 p-4 text-center shadow-md">
+            <p>&copy; 2024 MyCompany. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+    
+  
+    <!-- Modal for Terms & Condition -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Terms and condition</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <div class="modal-body">
+                Contract Rules <br>
+
+                1) To optimize and reset your account, you must first complete all ratings with a minimum amount of 100 USDT and a minimum account reset amount of  100 USDT. 
+                <br>
+                1.1) If you need to reset your account, you must contact our online service to reset your account after you have completed all your optimization and withdrawn your funds.
+                <br>
+                2) User withdrawals and system withdrawal requirements / security of user funds
+                <br>
+                2.1) Each user needs to complete all the optimization rating before they can meet the system withdrawal requirements
+                <br>
+                2.2) In order to avoid any loss of funds, all withdrawals are processed automatically by the system and not manually.
+                <br>
+                2.3) All users are not allowed to apply for withdrawal in the middle of task to avoid affecting the merchant's operation
+                <br>
+                2.4) Users' funds are completely safe on the Platform and the Platform will be liable for any accidental loss
+                <br>
+                (3) Please do not disclose your account password and withdrawal password to others. The platform will not be held responsible for any loss or damage caused.
+                <br>
+                3.1) All users are advised to keep their accounts secure to avoid disclosure 
+                <br>
+                (3.2) The Platform is not responsible for any accidental disclosure of accounts
+                <br>
+                3.3) Because of the financial implications of the accounts, it is important not to disclose them to avoid unnecessary problems.
+                <br>
+                3.4) Withdrawal password It is recommended that you do not set a birthday password, ID card number or mobile phone number, etc. It is recommended that you set a more difficult password to protect your funds.
+                <br>
+                3.5) If you forget your password, you can reset it by contacting the online service and be sure to change it yourself afterwards.
+                <br>
+                (4) Optimization rating are randomly assigned by the system and therefore cannot be changed, canceled, controlled or skipped in any way
+                <br>
+                4.1) Due to a large number of users on the platform, it is not possible to distribute group purchase items manually, so all group purchase items are distributed randomly by the system.
+                <br>
+                (4.2) Group purchase/combination items are randomly released by the system and cannot be changed/cancelled/skipped by any user/staff.
+                <br>
+                5. Legal action will be taken in the event of misuse of the account
+                <br>
+                6. Each item comes from a different merchant, no deposit for more than 10 minutes, and each deposit must be made with the online service to confirm the merchant's cryptocurrency wallet address
+                <br>
+                7. The platform will not be held responsible for any deposits made to the wrong wallet address
+                <br>
+                8. Each time optimization rating, the user is required to complete it within 2   hours, if it is not completed without notifying the merchant to apply for a time extension, resulting in complaints from the merchant, the user is liable for breach of contract
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            {% comment %} <button type="button" class="btn btn-primary">Understood</button> {% endcomment %}
+            </div>
+        </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-white mt-10 p-4 text-center shadow-md">
-        <p>&copy; 2024 MyCompany. All rights reserved.</p>
-    </footer>
+    <!-- Modal for Latest Campaign -->
+    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Latest Campaign</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h2>Latest Campaign</h2>
+                ....
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            {% comment %} <button type="button" class="btn btn-primary">Understood</button> {% endcomment %}
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal for FAQ -->
+    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">FAQ</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                I. Start Product Optimization Task 
+                <br>
+                1.1) Minimum account balance of 100 USDT for the first 40 tasks/set 
+                <br>
+                1.2) A minimum renewal of 100 USDT is required to start the tasks
+                <br>
+                1.3) Once one set of tasks has been completed, the user must request a full withdrawal and receive the withdrawal amount before requesting to reset the account.
+                <br>
+                II. Withdrawal
+                <br>
+                2.1) Full withdrawal amount can be requested after completing 1 group of task
+                <br>
+                2.2) Users need to complete 1 group of tasks before they can request a withdrawal.
+                <br>
+                2.3) You cannot request a withdrawal or refund if you choose to give up or withdraw in the middle of a task optimization. 
+                <br>
+                2.4) No withdrawals can be processed if the user's withdrawal request has not been received.
+                <br>
+                2.5) If the withdrawal amount is 30000 USDT or above, please contact our online customer service to make a withdrawal. 
+                <br>
+                <br>
+                III. Funds
+                3.1) All funds will be held securely in the user's account and can be requested in full once all data has been completed
+                <br>
+                3.2) To avoid any loss of funds, all data will be processed by the system and not manually
+                <br>
+                3.3) The platform will take full responsibility for any accidental loss of funds.
+                <br>
+                3.4) If the user's funds exceed the taxable amount of the UK government, the user will need to pay tax
+                <br> <br>
+                IV. Account Security
+                (4.1) Please do not disclose your login password and withdrawal password to others, as the platform will not be held responsible for any loss.
+                <br>
+                (4.2) Users are not recommended to set their birthday password, ID card number, or mobile phone number as their withdrawal password or login password.
+                <br>
+                4.3) If you forget your login password or withdrawal password, please contact our online service to reset it.
+                <br>
+                V. General Product Data
+                5.1) Platform earnings are divided into normal earnings and  quintuple earnings
+                <br>
+                5.2) Normal users will earn 0.5% of the profit for each normal task of optimizing
+                <br>
+                5.3) VIP 2 users will earn 1% of the profit for each normal task of optimizing
+                <br>
+                5.4) VIP 3 users will earn 1.5% of the profit for each normal task of optimizing
+                <br>
+                5.5) VIP 4 users will earn 2% of the profit for each normal task of optimizing
+                <br>
+                5.6) Funds and earnings will be refunded to the user's account for each completed task of optimizing
+                <br>
+                5.7) The system will randomly allocate tasks to the user's account based on the total amount in the user's account
+                <br>
+                5.8) Once the tasks of optimise product have been allocated to the user's account they cannot be cancelled or skipped
+                <br>
+                VI. Combined Product Data
+                6.1) Combined Product Data is composed of 0 to 3 data, the user may not necessarily get 3 products, the system will randomly allocate the data in the combined product the user has a higher chance of getting 1 or 2 product
+                <br>
+                6.2) Users will receive five times the profit for each product data combined  than for the general product data
+                <br>
+                6.3) Once you have received the combined product data, all funds will stop rolling and will be returned to your account after you have completed each product data in the combined.
+                <br>
+                6.4) The system will randomly allocate the combined product data to the user's account according to the total balance on the user's account
+                <br>
+                6.5) Once the combined product data has been allocated to the user's account, it cannot be cancelled or skipped.
+                <br><br>
+                VII. Deposit
+                (7.1) The amount of the deposit is the choice of the user, we cannot decide the amount of the deposit for the user, we suggest that the user can make the advance according to his ability or after he is familiar with the platform.
+                <br>
+                (7.2) If a user needs to make a deposit when receiving combined product data, it is recommended that the user be able to make an advance based on the insufficient amount shown on the account.
+                <br>
+                7.3) Before making an advance, you must request an advance from the online service and confirm the deposit detail.
+                <br>
+                7.4) The platform will not be held responsible if the user deposits the wrong deposit detail.
+                <br> <br>
+                VIII. Merchant Cooperation
+                (8.1) There are different products on the platform at each time, if the product is not optimized for a long period, the merchant will not be able to offload the task, which will affect the merchant product optimization progress, it is recommended that the user completes all product optimization and applies for a withdrawal as soon as possible to avoid affecting the merchant progress
+                <br>
+                (8.2) The merchant will provide a deposit detail for the user to make a deposit 
+                <br>
+                (8.3) Any delay in completing the product optimization will be detrimental to the merchant and the process
+                <br>
+                (8.4) User does not deal with it for a long time, the merchant has the right to complain about the user's account, resulting in a bad reputation for the user's account
+                <br> <br>
+                IX. Invitation
+                9.1) Users will be able to invite other users using the invitation code on their account
+                <br>
+                9.2) If the account has not yet completed all the data, it is not possible to invite other users
+                <br>
+                9.3) The referrer will receive 20% of the referee's total earnings for the day
+
+                X. Operating hours
+                (10.1) Platform operating hours 9:00 to 21:59
+                <br>
+                (10.2) Online service operating hours 9:00 to 21:59
+                <br>
+                (10.3) Platform withdrawal hour 9:00 to 21:59
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            {% comment %} <button type="button" class="btn btn-primary">Understood</button> {% endcomment %}
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal for About Us -->
+    <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">About Us</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h1>ABOUT US</h1>
+
+                Bamboo has been a trusted partner in the truest sense of the word.
+
+                
+
+                We approach growth from multiple angles.
+
+                
+
+                Most agencies only focus on channel management to determine success. This is no longer enough. Bamboo looks beyond the channels to understand, forecast, and make smarter investments over time
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            {% comment %} <button type="button" class="btn btn-primary">Understood</button> {% endcomment %}
+            </div>
+        </div>
+        </div>
+    </div>
 
 </body>
 </html>
