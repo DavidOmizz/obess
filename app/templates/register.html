@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html>
 <head>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -6,7 +6,7 @@
 </head>
 <body class="flex items-center justify-center h-screen bg-cover bg-top relative"
     style="background-image: url('https://i.postimg.cc/MHKNtbzk/kitchen-2165756-1280.jpg');">
-    <div class="bg-white p-8 rounded-lg shadow-md w-96">
+    <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
         <h2 class="text-2xl font-bold text-center mb-4">Register</h2>
         <form method="POST" class="space-y-4">
             {% csrf_token %}
@@ -17,6 +17,43 @@
         </form>
         <p class="text-center mt-4">
             <a href="{% url 'login' %}" class="text-blue-500">Already have an account? Login</a>
+        </p>
+    </div>
+</body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Register</title>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 bg-cover bg-top relative"
+    style="background-image: url('https://i.postimg.cc/MHKNtbzk/kitchen-2165756-1280.jpg');">
+    
+    <!-- Logo at Top Left (to match your login page) -->
+    <div class="absolute top-4 left-4">
+        <img src="https://i.postimg.cc/bwvgptgb/obsess.jpg" alt="Logo" class="h-8 md:h-12">
+    </div>
+
+    <div class="w-full max-w-md bg-white bg-opacity-90 p-6 md:p-8 rounded-lg shadow-lg">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-4 md:mb-6">Register</h2>
+        <form method="POST" class="space-y-4 md:space-y-6">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" required 
+                class="w-full py-3 md:py-4 text-base md:text-lg border border-gray-300 rounded-lg px-4">
+            <input type="email" name="email" placeholder="Email" required 
+                class="w-full py-3 md:py-4 text-base md:text-lg border border-gray-300 rounded-lg px-4">
+            <input type="password" name="password" placeholder="Password" required 
+                class="w-full py-3 md:py-4 text-base md:text-lg border border-gray-300 rounded-lg px-4">
+            <button type="submit" class="w-full bg-green-600 text-white py-3 md:py-4 text-base md:text-lg rounded-lg font-bold hover:bg-blue-600">
+                Register
+            </button>
+        </form>
+        <p class="text-center mt-4 md:mt-6">
+            <a href="{% url 'login' %}" class="text-green-600 underline text-base md:text-lg">Already have an account? Login</a>
         </p>
     </div>
 </body>
