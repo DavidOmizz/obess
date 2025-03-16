@@ -331,21 +331,21 @@
                 <!-- Row 1 -->
                 <div class="icon-item">
                     <a href="{% url 'certificate' %}">
-                        <i class="fa fa-certificate bg-black text-white p-3 rounded-full" aria-hidden="true"></i>
+                        <img src="https://i.postimg.cc/BQNt9hmS/certificate-img.png" width="65" height="65" alt="Certificate Logo" class="bg-green-600 text-white p-3 rounded-full">
                     </a>
                     <p>Certificate</p>
                 </div>
                 
                 <div class="icon-item">
                     <a href="{% url 'deposit' %}">
-                        <i class="fa fa-print bg-black text-white p-3 rounded-full" aria-hidden="true"></i>
+                        <img src="https://i.postimg.cc/xdNdm9n8/withdraw-img.png" width="65" height="65" alt="Withdraw Logo" class="bg-green-600 text-white p-3 rounded-full">
                     </a>    
                     <p>Withdraw</p>
                 </div>
                 
                 <div class="icon-item">
                     <a href="{% url 'deposit' %}">
-                        <i class="fa fa-money-bill bg-black text-white p-3 rounded-full" aria-hidden="true"></i>
+                        <img src="https://i.postimg.cc/bwBJdZX4/cash-img.png" width="65" height="65" alt="Deposit Logo" class="bg-green-600 text-white p-3 rounded-full">
                     </a>
                     <p>Deposit</p>
                 </div>
@@ -353,21 +353,21 @@
                 <!-- Row 2 -->
                 <div class="icon-item">
                     <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        <i class="fa fa-check-square bg-black text-white p-3 rounded-full" aria-hidden="true"></i>
+                        <img src="https://i.postimg.cc/Cx15Fj2j/terms-img.png" width="65" height="65" alt="terms Logo" class="bg-green-600 text-white p-3 rounded-full">
                     </a>
                     <p>Terms</p>
                 </div>
                 
                 <div class="icon-item">
                     <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
-                        <i class="fa fa-bullhorn bg-black text-white p-3 rounded-full" aria-hidden="true"></i>
+                        <img src="https://i.postimg.cc/hPKhYFbZ/latest-campaign-img.png" width="65" height="65" alt="Campaign Logo" class="bg-green-600 text-white p-3 rounded-full">
                     </a>    
                     <p>Campaign</p>
                 </div>
                 
                 <div class="icon-item">
                     <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
-                        <i class="fa fa-question-circle bg-black text-white p-3 rounded-full" aria-hidden="true"></i>
+                        <img src="https://i.postimg.cc/qBszQBnC/frequently-img.png" width="65" height="65" alt="Faq Logo" class="bg-green-600 text-white p-3 rounded-full">
                     </a>
                     <p>FAQ</p>
                 </div>
@@ -375,7 +375,7 @@
                 <!-- Row 3 (just one icon) -->
                 <div class="icon-item">
                     <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
-                        <i class="fa fa-info bg-black text-white p-3 rounded-full" aria-hidden="true"></i>
+                        <img src="https://i.postimg.cc/kGmD9Lr4/about-us-img.png" width="65" height="65" alt="About-us Logo" class="bg-green-600 text-white p-3 rounded-full">
                     </a>
                     <p>About</p>
                 </div>
@@ -433,10 +433,26 @@
         </div>
 
         <!-- Footer -->
-        <footer class="mt-8 p-2 md:p-4 text-center text-sm md:text-base">
+        <div class="mt-8 p-2 md:p-4 text-center text-sm md:text-base">
             <p>&copy; 2024 MyCompany. All rights reserved.</p>
-        </footer>
+        </div>
     </div>
+
+    <footer class="bg-white p-4 flex justify-around items-center">
+        <div class="flex flex-col items-center">
+            <img src="https://i.postimg.cc/0QmrTPBF/home-img.png" width="70" height="70" alt="" class="text-white p-3 rounded-full">
+            <p><a href="{% url 'dashboard' %}">Home</a></p>
+        </div>
+        <div class="mb-7">
+            <img src="https://i.postimg.cc/hjFtbNtr/bamboo-img.png" width="80" height="80" alt="" class="bg-green-600 text-white p-3 rounded-full">
+            <p><a href="{% url 'dashboard' %}">Submission</a></p>
+        </div>
+        <div class="flex flex-col items-center">
+            <img src="https://i.postimg.cc/7hnhLXDN/records-img.png" width="70" height="70" alt="" class="text-white p-3 rounded-full">
+            <p><a href="{% url 'dashboard' %}">Records</a></p>
+        </div>
+        
+    </footer>
 
     <!-- Modal for Terms & Condition -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
