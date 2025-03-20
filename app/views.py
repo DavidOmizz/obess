@@ -108,3 +108,8 @@ def withdraw(request):
     return render(request, "withdraw.html")
 def deposit(request):
     return render(request, "deposit.html")
+def viplevel(request):
+    return render(request, "vip-level.html")
+
+def profile(request):
+    return render(request, "profile.html", {"user": request.user})

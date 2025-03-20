@@ -148,7 +148,7 @@
                 <div class="w-full md:w-2/5 bg-white text-black shadow-md p-3 md:p-4 rounded-lg">
                     <div class="flex justify-between text-sm md:text-base">
                         <h2>Vip Level</h2>
-                        <a href="">View More</a>
+                        <a href="{% url 'viplevel' %}">View More</a>
                     </div>
     
                     <div class="flex flex-wrap justify-center md:justify-start">
@@ -253,7 +253,7 @@
                 </div>
                 <div class="modal-body">
                     <h1>ABOUT US</h1>
-                    Bamboo has been a trusted partner in the truest sense of the word.
+                    Obsess has been a trusted partner in the truest sense of the word.
                     We approach growth from multiple angles.
                     Most agencies only focus on channel management to determine success. This is no longer enough. Bamboo looks beyond the channels to understand, forecast, and make smarter investments over time
                 </div>
@@ -314,8 +314,9 @@
             <img src="https://i.postimg.cc/bwvgptgb/obsess.jpg" alt="Logo" class="h-8 md:h-10">
         </div>
         <div class="text-sm md:text-base">
-            <span class="mr-2 md:mr-4">Welcome, mybot</span>
-            <a href="{% url 'logout' %}" class="text-red-500">Logout</a>
+            <span class="mr-2 md:mr-4">Welcome, {{ user.username }}</span>
+            <!-- <a href="{% url 'logout' %}" class="text-red-500">Logout</a> -->
+            <a href="{% url 'profile' %}" class="text-red-500">Profile</a>
         </div>
     </nav>
 
@@ -407,7 +408,7 @@
                 <div class="w-full md:w-2/5 bg-white text-black shadow-md p-3 md:p-4 rounded-lg">
                     <div class="flex justify-between text-sm md:text-base">
                         <h2>Vip Level</h2>
-                        <a href="">View More</a>
+                        <a href="{% url 'viplevel' %}">View More</a>
                     </div>
     
                     <div class="flex flex-wrap justify-center md:justify-start">
@@ -528,7 +529,7 @@
                 </div>
                 <div class="modal-body">
                     <h1>ABOUT US</h1>
-                    Bamboo has been a trusted partner in the truest sense of the word.
+                    Obsess has been a trusted partner in the truest sense of the word.
                     We approach growth from multiple angles.
                     Most agencies only focus on channel management to determine success. This is no longer enough. Bamboo looks beyond the channels to understand, forecast, and make smarter investments over time
                 </div>
