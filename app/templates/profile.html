@@ -23,14 +23,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wallet Interface</title>
+  <title>Profile</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-<body class="bg-gradient-to-br from-green-100 to-green-200 min-h-screen p-4 flex justify-center min-h-screen bg-cover bg-top p-4 md:p-6"
-style="background-image: url('https://i.postimg.cc/MHKNtbzk/kitchen-2165756-1280.jpg');"    
->
+
+<body style="background-image: url('https://i.postimg.cc/MHKNtbzk/kitchen-2165756-1280.jpg');" class="pt-16 pb-0">
+  <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full shadow-md p-2 md:p-4 flex justify-between items-center bg-black z-50">
+      <div>
+          <img src="https://i.postimg.cc/bwvgptgb/obsess.jpg" alt="Logo" class="h-8 md:h-10">
+      </div>
+      <div class="text-sm md:text-base flex items-center">
+          <!-- <a href="{% url 'logout' %}" class="text-red-500">Logout</a> -->
+          <img src="https://i.postimg.cc/mrcDgVdh/image.png" width="20" alt="">
+          <a href="{% url 'profile' %}" class="text-white ml-1 font-bold">Profile</a>
+      </div>
+    </nav> 
+  <div class=" from-green-100 to-green-200 min-h-screen p-4 flex justify-center min-h-screen bg-cover bg-top p-4 md:p-6"
+      
+  >
+
   <div class="max-w-md w-full bg-white rounded-lg shadow-lg overflow-hidden">
     <!-- Profile Header -->
     <div class="bg-white p-4 flex flex-col items-center">
@@ -57,7 +71,7 @@ style="background-image: url('https://i.postimg.cc/MHKNtbzk/kitchen-2165756-1280
         <div class="w-1/2 pr-1">
           <div class="bg-gray-100 rounded-lg p-3">
             <p class="text-xs text-gray-500">Referral code: <span class="font-medium">AB3C9D</span></p>
-            <p class="mt-2 text-lg font-bold text-gray-800">USDT 0.00</p>
+            <p class="mt-2 text-lg font-bold text-gray-800">USDT {{ balance }}</p>
             <p class="text-xs text-gray-500">Total Profit</p>
           </div>
         </div>
@@ -68,7 +82,7 @@ style="background-image: url('https://i.postimg.cc/MHKNtbzk/kitchen-2165756-1280
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
             </div>
-            <p class="text-lg font-bold text-gray-800">USDT 0.00</p>
+            <p class="text-lg font-bold text-gray-800">USDT {{ balance }}</p>
             <p class="text-xs text-gray-500">Total Balance</p>
           </div>
         </div>
@@ -89,7 +103,8 @@ style="background-image: url('https://i.postimg.cc/MHKNtbzk/kitchen-2165756-1280
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                 </svg>
               </div>
-              <span class="text-gray-800">Deposit</span>
+              <a href="{% url 'deposit' %}" class="text-gray-800">Deposit</a>
+              <span ></span>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
@@ -104,7 +119,7 @@ style="background-image: url('https://i.postimg.cc/MHKNtbzk/kitchen-2165756-1280
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <span class="text-gray-800">Salary</span>
+              <a href="" class="text-gray-800">Salary</a>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
@@ -119,7 +134,7 @@ style="background-image: url('https://i.postimg.cc/MHKNtbzk/kitchen-2165756-1280
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
                 </svg>
               </div>
-              <span class="text-gray-800">Withdraw</span>
+              <a href="{% url 'withdraw' %}" class="text-gray-800">Withdraw</a>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
@@ -134,7 +149,7 @@ style="background-image: url('https://i.postimg.cc/MHKNtbzk/kitchen-2165756-1280
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                 </svg>
               </div>
-              <span class="text-gray-800">Records</span>
+              <a href="" class="text-gray-800">Records</a>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
@@ -220,6 +235,7 @@ style="background-image: url('https://i.postimg.cc/MHKNtbzk/kitchen-2165756-1280
         <a href="{% url 'logout' %}" class="text-red-600 font-medium">Logout</a>
       </div>
     </div>
+  </div>
   </div>
 </body>
 </html>

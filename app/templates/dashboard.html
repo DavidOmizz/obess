@@ -82,7 +82,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Dashboard</title>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 pt-16 pb-20">
     
     <!-- Marquee -->
     <marquee behavior="" direction="" class="bg-green-500 text-white p-1 md:p-2 text-sm md:text-base">
@@ -301,29 +301,35 @@
         }
     </style>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 pt-16 pb-0 ">
     
-    <!-- Marquee -->
-    <marquee behavior="" direction="" class="bg-green-500 text-white p-1 md:p-2 text-sm md:text-base">
-        Welcome to Obsess, if any assistance is needed, please seek help from our customer service. Have a nice day!
-    </marquee>
-
     <!-- Navbar -->
-    <nav class="bg-white shadow-md p-2 md:p-4 flex justify-between items-center">
+    
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full shadow-md p-2 md:p-4 flex justify-between items-center bg-black z-50">
         <div>
             <img src="https://i.postimg.cc/bwvgptgb/obsess.jpg" alt="Logo" class="h-8 md:h-10">
         </div>
-        <div class="text-sm md:text-base">
-            <span class="mr-2 md:mr-4">Welcome, {{ user.username }}</span>
+        <div class="text-sm md:text-base flex items-center">
             <!-- <a href="{% url 'logout' %}" class="text-red-500">Logout</a> -->
-            <a href="{% url 'profile' %}" class="text-red-500">Profile</a>
+            <img src="https://i.postimg.cc/mrcDgVdh/image.png" width="20" alt="">
+            <a href="{% url 'profile' %}" class="text-white ml-1 font-bold">Profile</a>
         </div>
     </nav>
 
+
+    <!-- Marquee -->
+    <marquee behavior="" direction="" class="bg-green-500 text-white p-1 md:p-2 text-sm md:text-base mt-[-40px] md:mt-[-10px]" style="">
+        Welcome to Obsess, if any assistance is needed, please seek help from our customer service. Have a nice day!
+    </marquee>
+
     <!-- Background Image Container -->
     <div class="min-h-screen bg-cover bg-top p-4 md:p-6"
-        style="background-image: url('https://i.postimg.cc/MHKNtbzk/kitchen-2165756-1280.jpg');">
+        style="background-image: url('https://i.postimg.cc/MHKNtbzk/kitchen-2165756-1280.jpg'); margin-top: -10px;">
         
+        <h1 class="font-bold">Welcome</h1>
+        <span class="mr-2 md:mr-4">{{ user.username }}</span>
+
         <div class="container mx-auto">
             <h2 class="text-xl md:text-2xl font-bold text-center mb-8 text-black">Quick Links</h2>
             
@@ -404,7 +410,7 @@
             </div> {% endcomment %}
 
              <!-- VIP level box - Full width on mobile -->
-             <div class="flex justify-center items-center mb-6 md:mb-8">
+             <div class="flex justify-center items-center mb-6 md:mb-50">
                 <div class="w-full md:w-2/5 bg-white text-black shadow-md p-3 md:p-4 rounded-lg">
                     <div class="flex justify-between text-sm md:text-base">
                         <h2>Vip Level</h2>
@@ -434,18 +440,18 @@
         </div>
 
         <!-- Footer -->
-        <div class="mt-8 p-2 md:p-4 text-center text-sm md:text-base">
+        <div class="mt-8 p-2 md:p-4 text-center text-sm md:text-base" style="margin-bottom: 150px;">
             <p>&copy; 2024 MyCompany. All rights reserved.</p>
         </div>
     </div>
 
-    <footer class="bg-white p-4 flex justify-around items-center">
+    <!-- <footer class="bg-white flex justify-around items-center">
         <div class="flex flex-col items-center">
             <img src="https://i.postimg.cc/0QmrTPBF/home-img.png" width="70" height="70" alt="" class="text-white p-3 rounded-full">
             <p><a href="{% url 'dashboard' %}">Home</a></p>
         </div>
-        <div class="mb-7">
-            <img src="https://i.postimg.cc/hjFtbNtr/bamboo-img.png" width="80" height="80" alt="" class="bg-green-600 text-white p-3 rounded-full">
+        <div class="">
+            <img src="https://i.postimg.cc/hjFtbNtr/bamboo-img.png" width="70" height="70" alt="" class="bg-green-600 text-white p-3 rounded-full" style="margin-top: -70px;">
             <p><a href="{% url 'dashboard' %}">Submission</a></p>
         </div>
         <div class="flex flex-col items-center">
@@ -453,7 +459,23 @@
             <p><a href="{% url 'dashboard' %}">Records</a></p>
         </div>
         
+    </footer> -->
+
+    <footer class="fixed bottom-0 left-0 w-full bg-white p-2 flex justify-around items-center z-50" style="margin-top: -100px;">
+        <div class="flex flex-col items-center">
+            <img src="https://i.postimg.cc/0QmrTPBF/home-img.png" width="40" height="40" alt="" class="text-white rounded-full">
+            <p><a href="{% url 'dashboard' %}">Home</a></p>
+        </div>
+        <div class="">
+            <img src="https://i.postimg.cc/hjFtbNtr/bamboo-img.png" width="70" height="70" alt="" class="bg-green-600 text-white p-3 rounded-full" style="margin-top: -50px;">
+            <p><a href="{% url 'dashboard' %}">Submission</a></p>
+        </div>
+        <div class="flex flex-col items-center">
+            <img src="https://i.postimg.cc/7hnhLXDN/records-img.png" width="40" height="40" alt="" class="text-white rounded-full">
+            <p><a href="{% url 'dashboard' %}">Records</a></p>
+        </div>
     </footer>
+    
 
     <!-- Modal for Terms & Condition -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
