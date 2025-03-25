@@ -299,10 +299,36 @@
             max-width: 450px;
             margin: 0 auto;
         }
+
+        /* Popup container */
+        
+
     </style>
 </head>
 <body class="bg-gray-100 pt-16 pb-0 ">
+
+
     
+
+     <!-- Popup Container
+    <div id="popup" class="popup-container">
+        <div class="popup-content">
+            <button id="closePopup" class="close-btn">&times;</button>
+            <img src="https://i.postimg.cc/gkGN9gdP/home.jpg" width="1100" alt="Popup Image">
+        </div>
+    </div> -->
+
+    <!-- Popup Container -->
+    <div id="popup" class="fixed inset-0 hidden bg-black bg-opacity-50 flex justify-center items-center p-4">
+        <div class="relative bg-white rounded-lg text-center w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] max-w-[1100px]">
+            <button id="closePopup" class="absolute top-[-40px] right-[-20px] text-white border-none p-2 rounded-full">
+                &times;
+            </button>
+            <img src="https://i.postimg.cc/gkGN9gdP/home.jpg" class="w-full h-auto rounded-lg" alt="Popup Image">
+        </div>
+    </div>
+    
+
     <!-- Navbar -->
     
     <!-- Navbar -->
@@ -331,10 +357,10 @@
         <span class="mr-2 md:mr-4">{{ user.username }}</span>
 
         <div class="container mx-auto">
-            <h2 class="text-xl md:text-2xl font-bold text-center mb-8 text-black">Quick Links</h2>
+            <!-- <h2 class="text-xl md:text-2xl font-bold text-center mb-8 text-black">Quick Links</h2> -->
             
             <!-- Organized Icon Grid - 3 per row -->
-            <div class="icon-grid">
+            <div class="icon-grid mt-20">
                 <!-- Row 1 -->
                 <div class="icon-item">
                     <a href="{% url 'certificate' %}">
@@ -389,7 +415,7 @@
             </div>
 
             <!-- VIP level box -->
-            {% comment %} <div class="mt-8">
+            {% comment %} <div class="mt-30">
                 <div class="flex justify-between items-center bg-white text-black p-2 rounded-t-lg">
                     <h2 class="font-semibold text-lg">Vip Level</h2>
                     <a href="" class="text-blue-600">View More</a>
@@ -397,10 +423,10 @@
     
                 <div class="bg-white p-3 rounded-b-lg">
                     <div class="flex justify-center space-x-2 mb-3">
-                        <img src="https://i.postimg.cc/02Mw19qn/level1-1703370234.jpg" alt="" width="40" height="40">
-                        <img src="https://i.postimg.cc/HnK88hbb/level2-1703370550.jpg" alt="" width="40" height="40">
-                        <img src="https://i.postimg.cc/59kCr6Dj/level3-1703370691.jpg" alt="" width="40" height="40">
-                        <img src="https://i.postimg.cc/rFBt87Vk/level4-1703370829.jpg" alt="" width="40" height="40">
+                        <img src="https://i.postimg.cc/02Mw19qn/level1-1703370234.jpg" alt="" width="60" height="60">
+                        <img src="https://i.postimg.cc/HnK88hbb/level2-1703370550.jpg" alt="" width="60" height="60">
+                        <img src="https://i.postimg.cc/59kCr6Dj/level3-1703370691.jpg" alt="" width="60" height="60">
+                        <img src="https://i.postimg.cc/rFBt87Vk/level4-1703370829.jpg" alt="" width="60" height="60">
                         <img src="https://i.postimg.cc/Bbt160Pq/premium-user-1723759153.jpg" alt="" width="40" height="40">
                     </div>
                     <p class="text-sm">
@@ -410,21 +436,21 @@
             </div> {% endcomment %}
 
              <!-- VIP level box - Full width on mobile -->
-             <div class="flex justify-center items-center mb-6 md:mb-50">
-                <div class="w-full md:w-2/5 bg-white text-black shadow-md p-3 md:p-4 rounded-lg">
-                    <div class="flex justify-between text-sm md:text-base">
-                        <h2>Vip Level</h2>
-                        <a href="{% url 'viplevel' %}">View More</a>
+             <div class="flex justify-center items-center mb-6 md:mb-50 mt-[30px]">
+                <div class="w-sm md:w-2/5 bg-white text-black shadow-md p-3 md:p-4 rounded-lg">
+                    <div class="flex justify-between items-center text-sm md:text-base">
+                        <h2 class="font-bold text-2xl">Vip Level</h2>
+                        <a href="{% url 'viplevel' %}" class="text-green-500">View More</a>
                     </div>
     
-                    <div class="flex flex-wrap justify-center md:justify-start">
-                        <img src="https://i.postimg.cc/02Mw19qn/level1-1703370234.jpg" alt="" width="40" height="40" class="m-2 md:m-3">
-                        <img src="https://i.postimg.cc/HnK88hbb/level2-1703370550.jpg" alt="" width="40" height="40" class="m-2 md:m-3">
-                        <img src="https://i.postimg.cc/59kCr6Dj/level3-1703370691.jpg" alt="" width="40" height="40" class="m-2 md:m-3">
-                        <img src="https://i.postimg.cc/rFBt87Vk/level4-1703370829.jpg" alt="" width="40" height="40" class="m-2 md:m-3">
+                    <div class="flex flex-wrap justify-center md:justify-start mt-3">
+                        <img src="https://i.postimg.cc/02Mw19qn/level1-1703370234.jpg" alt="" width="56" height="30" class="m-2 md:m-3">
+                        <img src="https://i.postimg.cc/HnK88hbb/level2-1703370550.jpg" alt="" width="56" height="30" class="m-2 md:m-3">
+                        <img src="https://i.postimg.cc/59kCr6Dj/level3-1703370691.jpg" alt="" width="56" height="30" class="m-2 md:m-3">
+                        <img src="https://i.postimg.cc/rFBt87Vk/level4-1703370829.jpg" alt="" width="56" height="30" class="m-2 md:m-3">
                         <img src="https://i.postimg.cc/Bbt160Pq/premium-user-1723759153.jpg" alt="" width="40" height="40" class="m-2 md:m-3">
                     </div>
-                    <p class="text-xs md:text-sm"><strong>
+                    <p class="text-[14px] md:text-[14px] mt-10"><strong>
                         Normal users receive general purpose data collection access.
                         <br>
                         ● Suitable for most data capture scenarios involving light to medium usage
@@ -561,5 +587,37 @@
             </div>
         </div>
     </div>
+
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let popup = document.getElementById("popup");
+            let closePopup = document.getElementById("closePopup");
+
+            // Show the popup when the page loads (simulate user login)
+            popup.style.display = "flex";
+
+            // Hide the popup when the close button is clicked
+            closePopup.addEventListener("click", function () {
+                popup.style.display = "none";
+            });
+        });
+
+    </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/67e251340e81ec19127d887c/1in60qdvd';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
 </body>
 </html>
