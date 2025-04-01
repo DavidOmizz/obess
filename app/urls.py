@@ -1,6 +1,6 @@
 # urls.py
 from django.urls import path
-from .views import register, user_login, user_logout, dashboard, certificate, withdraw, deposit, viplevel, profile
+from .views import register, user_login, user_logout, dashboard, certificate, withdraw, deposit, viplevel, profile, products, contact,records,withdrawInformation
 
 urlpatterns = [
     path("", register, name="register"),
@@ -12,4 +12,8 @@ urlpatterns = [
     path('deposit/' , deposit, name='deposit'),
     path('viplevel/' , viplevel, name='viplevel'),
     path('profile/' , profile, name='profile'),
+    path('products/', products, name='products'),
+    path('contact/', contact, name='contact'),
+    path('records/', records, name='records' ),
+    path('withdrawInformation/', withdrawInformation, name='withdrawInformation' ),
 ]

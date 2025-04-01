@@ -1,0 +1,136 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <div>
+        <img src="https://i.postimg.cc/XYVn8MQ0/image.png" alt="">
+
+        <div>
+            <span>Username</span>
+            <img src="https://i.postimg.cc/7LhDFgFs/image.png" alt="">
+        </div>
+
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body style="background-image: url('https://i.postimg.cc/MHKNtbzk/kitchen-2165756-1280.jpg'); background-repeat: no-repeat; background-size: cover;" class="pt-16 pb-0">
+  <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full shadow-md p-2 md:p-4 flex justify-between items-center bg-black z-50">
+      <div>
+          <img src="https://i.postimg.cc/XYLVk42p/image-removebg-preview.png" alt="Logo" class="h-8 md:h-10">
+      </div>
+      <div class="text-sm md:text-base flex items-center">
+          <!-- <a href="{% url 'logout' %}" class="text-red-500">Logout</a> -->
+          <img src="https://i.postimg.cc/mrcDgVdh/image.png" width="20" alt="">
+          <a href="{% url 'profile' %}" class="text-white ml-1 font-bold">Profile</a>
+      </div>
+    </nav> 
+  
+    <div class="flex justify-between items-center bg-green-200 -mt-5 md:mt-2 p-4">
+
+        <p>All</p>
+        <p>Pending</p>
+        <p>Completed</p>
+        <p>In progress</p>
+    </div>
+
+    <div class="bg-green-400 p-5 bg-opacity-80 text-white">
+        <div class="flex mt-4 text-white">
+            <img src="https://api.bamboo-malls.com/storage/products/FASTER%20PD25W%20EU%20TypeC%20Super%20Fast%20Charging%20Adapter%20For%20Samsung%20&%20iPhone_1694052820.jpg" width="150" alt="">
+            <div class="ml-5">
+                <p>Purchased App</p>
+                <p class="font-bold">FASTER PD25W EU TypeC Super Fast Charging Adapter For Samsung & iPhone</p>
+            </div>
+        </div>
+
+        <div class="flex justify-between mt-[100px]">
+            <div>
+                <p>2025-03-24, 10:29</p>
+                <p>Total Amount</p>
+                <p>Profit</p>
+            </div>
+            <div>
+                <div class="flex justify-between mt-4">
+                    <button>Submission</button>
+                    <button>Submit Now</button>
+                </div>
+                <p>USDT: 430.00</p>
+                <p>USDT: 4.3</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-green-400 p-5 bg-opacity-80 text-white mt-5">
+        <div class="flex mt-4 text-white">
+            <img src="https://api.bamboo-malls.com/storage/products/FASTER%20PD25W%20EU%20TypeC%20Super%20Fast%20Charging%20Adapter%20For%20Samsung%20&%20iPhone_1694052820.jpg" width="150" alt="">
+            <div class="ml-5">
+                <p>Purchased App</p>
+                <p class="font-bold">FASTER PD25W EU TypeC Super Fast Charging Adapter For Samsung & iPhone</p>
+            </div>
+        </div>
+
+        <div class="flex justify-between mt-[100px]">
+            <div>
+                <p>2025-03-24, 10:29</p>
+                <p>Total Amount</p>
+                <p>Profit</p>
+            </div>
+            <div>
+                <div class="flex justify-between mt-4">
+                    <button>Submission</button>
+                    <button>Submit Now</button>
+                </div>
+                <p>USDT: 430.00</p>
+                <p>USDT: 4.3</p>
+            </div>
+        </div>
+    </div>
+
+  <div class="text-center text-white mt-5" style="margin-bottom: 170px;">Copyright © 2020-2025 Obsess one of its affiliates.</div>
+
+  <footer class="fixed bottom-0 left-0 w-full bg-white p-2 flex justify-around items-center z-50" style="margin-top: -200px;">
+    <div class="flex flex-col items-center">
+        <img src="https://i.postimg.cc/0QmrTPBF/home-img.png" width="40" height="40" alt="" class="text-white rounded-full">
+        <p><a href="{% url 'dashboard' %}">Home</a></p>
+    </div>
+    <div class="">
+        <img src="https://i.postimg.cc/hjFtbNtr/bamboo-img.png" width="70" height="70" alt="" class="bg-green-600 text-white p-3 rounded-full" style="margin-top: -50px;">
+        <p><a href="{% url 'products' %}">Submission</a></p>
+    </div>
+    <div class="flex flex-col items-center">
+        <img src="https://i.postimg.cc/7hnhLXDN/records-img.png" width="40" height="40" alt="" class="text-white rounded-full">
+        <p><a href="{% url 'dashboard' %}">Records</a></p>
+    </div>
+</footer>
+
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/67e251340e81ec19127d887c/1in60qdvd';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>

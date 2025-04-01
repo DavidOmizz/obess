@@ -301,7 +301,16 @@
         }
 
         /* Popup container */
-        
+        @keyframes marquee {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+            }
+
+        .animate-marquee {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 30s linear infinite;
+            }
 
     </style>
 </head>
@@ -334,7 +343,7 @@
     <!-- Navbar -->
     <nav class="fixed top-0 left-0 w-full shadow-md p-2 md:p-4 flex justify-between items-center bg-black z-50">
         <div>
-            <img src="https://i.postimg.cc/bwvgptgb/obsess.jpg" alt="Logo" class="h-8 md:h-10">
+            <img src="https://i.postimg.cc/XYLVk42p/image-removebg-preview.png" alt="Logo" class="h-8 md:h-10">
         </div>
         <div class="text-sm md:text-base flex items-center">
             <!-- <a href="{% url 'logout' %}" class="text-red-500">Logout</a> -->
@@ -345,16 +354,24 @@
 
 
     <!-- Marquee -->
-    <marquee behavior="" direction="" class="bg-green-500 text-white p-1 md:p-2 text-sm md:text-base mt-[-40px] md:mt-[-10px]" style="">
+    <!-- <marquee behavior="" direction="" class="bg-green-500 text-white p-1 md:p-2 text-sm md:text-base -mt-3 md:-mt-3" style="">
         Welcome to Obsess, if any assistance is needed, please seek help from our customer service. Have a nice day!
-    </marquee>
+    </marquee> -->
+    <div class="bg-green-500 text-white p-2 md:p-2 text-sm md:text-base -mt-5 md:-mt-3 overflow-hidden">
+        <p class="animate-marquee whitespace-nowrap p-2">
+            Welcome to Obsess, if any assistance is needed, please seek help from our customer service. Have a nice day!
+        </p>
+    </div>
 
     <!-- Background Image Container -->
     <div class="min-h-screen bg-cover bg-top p-4 md:p-6"
         style="background-image: url('https://i.postimg.cc/MHKNtbzk/kitchen-2165756-1280.jpg'); margin-top: -10px;">
         
-        <h1 class="font-bold">Welcome</h1>
-        <span class="mr-2 md:mr-4">{{ user.username }}</span>
+        <h1 class="font-bold text-white mt-5 text-xl">Welcome</h1>
+        <div class="flex items-center mt-2 mb-4">
+            <span class="mr-2 md:mr-4 text-white text-2xl">{{ user.username }}</span> 
+            <img src="https://i.postimg.cc/02Mw19qn/level1-1703370234.jpg" alt="" width="25" height="25">
+        </div>
 
         <div class="container mx-auto">
             <!-- <h2 class="text-xl md:text-2xl font-bold text-center mb-8 text-black">Quick Links</h2> -->
@@ -364,21 +381,21 @@
                 <!-- Row 1 -->
                 <div class="icon-item">
                     <a href="{% url 'certificate' %}">
-                        <img src="https://i.postimg.cc/BQNt9hmS/certificate-img.png" width="65" height="65" alt="Certificate Logo" class="bg-green-600 text-white p-3 rounded-full">
+                        <img src="https://i.postimg.cc/BQNt9hmS/certificate-img.png" width="45" height="45" alt="Certificate Logo" class="bg-green-600 text-white p-2 rounded-full">
                     </a>
                     <p>Certificate</p>
                 </div>
                 
                 <div class="icon-item">
                     <a href="{% url 'deposit' %}">
-                        <img src="https://i.postimg.cc/xdNdm9n8/withdraw-img.png" width="65" height="65" alt="Withdraw Logo" class="bg-green-600 text-white p-3 rounded-full">
+                        <img src="https://i.postimg.cc/xdNdm9n8/withdraw-img.png" width="45" height="45" alt="Withdraw Logo" class="bg-green-600 text-white p-2 rounded-full">
                     </a>    
                     <p>Withdraw</p>
                 </div>
                 
                 <div class="icon-item">
                     <a href="{% url 'deposit' %}">
-                        <img src="https://i.postimg.cc/bwBJdZX4/cash-img.png" width="65" height="65" alt="Deposit Logo" class="bg-green-600 text-white p-3 rounded-full">
+                        <img src="https://i.postimg.cc/bwBJdZX4/cash-img.png" width="45" height="45" alt="Deposit Logo" class="bg-green-600 text-white p-2 rounded-full">
                     </a>
                     <p>Deposit</p>
                 </div>
@@ -386,21 +403,21 @@
                 <!-- Row 2 -->
                 <div class="icon-item">
                     <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        <img src="https://i.postimg.cc/Cx15Fj2j/terms-img.png" width="65" height="65" alt="terms Logo" class="bg-green-600 text-white p-3 rounded-full">
+                        <img src="https://i.postimg.cc/Cx15Fj2j/terms-img.png" width="45" height="45" alt="terms Logo" class="bg-green-600 text-white p-2 rounded-full">
                     </a>
                     <p>Terms</p>
                 </div>
                 
                 <div class="icon-item">
                     <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
-                        <img src="https://i.postimg.cc/hPKhYFbZ/latest-campaign-img.png" width="65" height="65" alt="Campaign Logo" class="bg-green-600 text-white p-3 rounded-full">
+                        <img src="https://i.postimg.cc/hPKhYFbZ/latest-campaign-img.png" width="45" height="45" alt="Campaign Logo" class="bg-green-600 text-white p-2 rounded-full">
                     </a>    
                     <p>Campaign</p>
                 </div>
                 
                 <div class="icon-item">
                     <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
-                        <img src="https://i.postimg.cc/qBszQBnC/frequently-img.png" width="65" height="65" alt="Faq Logo" class="bg-green-600 text-white p-3 rounded-full">
+                        <img src="https://i.postimg.cc/qBszQBnC/frequently-img.png" width="45" height="45" alt="Faq Logo" class="bg-green-600 text-white p-2 rounded-full">
                     </a>
                     <p>FAQ</p>
                 </div>
@@ -408,7 +425,7 @@
                 <!-- Row 3 (just one icon) -->
                 <div class="icon-item">
                     <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
-                        <img src="https://i.postimg.cc/kGmD9Lr4/about-us-img.png" width="65" height="65" alt="About-us Logo" class="bg-green-600 text-white p-3 rounded-full">
+                        <img src="https://i.postimg.cc/kGmD9Lr4/about-us-img.png" width="45" height="45" alt="About-us Logo" class="bg-green-600 text-white p-2 rounded-full">
                     </a>
                     <p>About</p>
                 </div>
@@ -494,11 +511,11 @@
         </div>
         <div class="">
             <img src="https://i.postimg.cc/hjFtbNtr/bamboo-img.png" width="70" height="70" alt="" class="bg-green-600 text-white p-3 rounded-full" style="margin-top: -50px;">
-            <p><a href="{% url 'dashboard' %}">Submission</a></p>
+            <p><a href="{% url 'products' %}">Submission</a></p>
         </div>
         <div class="flex flex-col items-center">
             <img src="https://i.postimg.cc/7hnhLXDN/records-img.png" width="40" height="40" alt="" class="text-white rounded-full">
-            <p><a href="{% url 'dashboard' %}">Records</a></p>
+            <p><a href="{% url 'records' %}">Records</a></p>
         </div>
     </footer>
     

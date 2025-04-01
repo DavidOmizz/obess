@@ -169,3 +169,16 @@ def profile(request):
     except Wallet.DoesNotExist:
         balance = 0  # Default to 0 if no wallet exists
     return render(request, "profile.html", {"user": request.user, "balance": balance})
+
+
+def products(request):
+    return render(request, 'products.html', {"user": request.user})
+
+def contact(request):
+    return render(request, 'contact-us.html', {"user": request.user})
+
+def records(request):
+    return render(request, 'records.html', {"user": request.user})
+
+def withdrawInformation(request):
+    return render(request, 'withdraw-information.html', {"user": request.user})
