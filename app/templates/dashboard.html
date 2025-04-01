@@ -505,7 +505,7 @@
     </footer> -->
 
     <footer class="fixed bottom-0 left-0 w-full bg-white p-2 flex justify-around items-center z-50" style="margin-top: -100px;">
-        <div class="flex flex-col items-center">
+        <!-- <div class="flex flex-col items-center">
             <img src="https://i.postimg.cc/0QmrTPBF/home-img.png" width="40" height="40" alt="" class="text-white rounded-full">
             <p><a href="{% url 'dashboard' %}">Home</a></p>
         </div>
@@ -516,7 +516,24 @@
         <div class="flex flex-col items-center">
             <img src="https://i.postimg.cc/7hnhLXDN/records-img.png" width="40" height="40" alt="" class="text-white rounded-full">
             <p><a href="{% url 'records' %}">Records</a></p>
+        </div> -->
+        <div class="flex justify-around items-center w-full">
+            <a href="{% url 'dashboard' %}" class="flex flex-col items-center hover:opacity-80 transition">
+                <img src="https://i.postimg.cc/0QmrTPBF/home-img.png" width="40" height="40" alt="" class="text-white rounded-full">
+                <p>Home</p>
+            </a>
+        
+            <a href="{% url 'products' %}" class="flex flex-col items-center hover:opacity-80 transition">
+                <img src="https://i.postimg.cc/hjFtbNtr/bamboo-img.png" width="70" height="70" alt="" class="bg-green-600 text-white p-3 rounded-full" style="margin-top: -50px;">
+                <p>Submission</p>
+            </a>
+        
+            <a href="{% url 'records' %}" class="flex flex-col items-center hover:opacity-80 transition">
+                <img src="https://i.postimg.cc/7hnhLXDN/records-img.png" width="40" height="40" alt="" class="text-white rounded-full">
+                <p>Records</p>
+            </a>
         </div>
+        
     </footer>
     
 
