@@ -32,14 +32,15 @@
 {% comment %} <body style="background-image: url('https://i.postimg.cc/MHKNtbzk/kitchen-2165756-1280.jpg'); background-repeat: no-repeat; background-size: cover;" class="pt-16 pb-0"> {% endcomment %}
 <body class="bg-[rgb(220,252,231)] pt-16 pb-0">
   <!-- Navbar -->
-    <nav class="fixed top-0 left-0 w-full shadow-md p-2 md:p-4 flex justify-between items-center bg-black z-50">
+    <nav class="fixed top-0 left-0 w-full shadow-md p-2 md:p-4 flex justify-between items-center bg-white z-50">
       <div>
-          <img src="https://i.postimg.cc/XYLVk42p/image-removebg-preview.png" alt="Logo" class="h-8 md:h-10">
+          <img src="https://i.postimg.cc/FHZQV12m/new-logo.jpg" alt="Logo" class="h-8 md:h-10">
       </div>
       <div class="text-sm md:text-base flex items-center">
           <!-- <a href="{% url 'logout' %}" class="text-red-500">Logout</a> -->
-          <img src="https://i.postimg.cc/mrcDgVdh/image.png" width="20" alt="">
-          <a href="{% url 'profile' %}" class="text-white ml-1 font-bold">Profile</a>
+          <!-- <img src="https://i.postimg.cc/mrcDgVdh/image.png" width="20" alt=""> -->
+          <img src="https://i.postimg.cc/7hnhLXDN/records-img.png" width="20" alt="">
+          <a href="{% url 'records' %}" class="text-black ml-1 font-bold">Records</a>
       </div>
     </nav> 
   
@@ -131,9 +132,9 @@
             <p>Submission</p>
         </a>
     
-        <a href="{% url 'records' %}" class="flex flex-col items-center hover:opacity-80 transition">
-            <img src="https://i.postimg.cc/7hnhLXDN/records-img.png" width="40" height="40" alt="" class="text-white rounded-full">
-            <p>Records</p>
+        <a href="{% url 'profile' %}" class="flex flex-col items-center hover:opacity-80 transition">
+            <img src="https://i.postimg.cc/mrcDgVdh/image.png" width="40" height="40" alt="" class="text-white rounded-full">
+            <p>Mine</p>
         </a>
     </div>
 </footer>
