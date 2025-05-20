@@ -65,7 +65,7 @@ from django.http import JsonResponse
 
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, CustomUserEditForm
 from .models import *
 # def register(request):
 #     if request.method == "POST":
@@ -169,6 +169,20 @@ def profile(request):
     except Wallet.DoesNotExist:
         balance = 0  # Default to 0 if no wallet exists
     return render(request, "profile.html", {"user": request.user, "balance": balance})
+
+from django.contrib.auth.decorators import login_required
+@login_required
+def edit_profile(request):
+    user = request.user
+    if request.method == 'POST':
+        form = CustomUserEditForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')  # Replace with your profile view name
+    else:
+        form = CustomUserEditForm(instance=user)
+
+    return render(request, 'edit-profile.html', {'form': form})
 
 
 def products(request):

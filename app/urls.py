@@ -1,6 +1,6 @@
 # urls.py
 from django.urls import path
-from .views import register, user_login, user_logout, dashboard, certificate, withdraw, deposit, viplevel, profile, products, contact,records,withdrawInformation
+from .views import register, user_login, user_logout, dashboard, certificate, withdraw, deposit, viplevel, profile, products, contact,records,withdrawInformation,edit_profile
 
 urlpatterns = [
     path("", register, name="register"),
@@ -16,4 +16,5 @@ urlpatterns = [
     path('contact/', contact, name='contact'),
     path('records/', records, name='records' ),
     path('withdrawInformation/', withdrawInformation, name='withdrawInformation' ),
+    path('edit-profile/', edit_profile, name='edit_profile'),
 ]
