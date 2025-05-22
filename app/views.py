@@ -196,3 +196,6 @@ def records(request):
 
 def withdrawInformation(request):
     return render(request, 'withdraw-information.html', {"user": request.user})
+
+def notification(request):
+    return render(request, 'notifications.html', {"user": request.user})

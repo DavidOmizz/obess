@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <title>Notifications</title>
+</head>
+<body>
+    <div class="bg-black p-4 flex items-center justify-around">
+        <a href="{% url 'profile' %}" class="text-white">
+            <i class="fa fa-arrow-left text-white"></i>
+        </a>
+        <h3 class="text-white">Notifications</h3>
+    </div>
+
+    {% comment %} <div class="flex items-center justify-around mt-2">
+        <p><a href="">Withdraw</a></p>
+        <p><a href="">History</a></p>
+    </div> {% endcomment %}
+
+
+    <div class="mx-5 mt-4">
+        
+        <!-- Balance Section -->
+        <div class="bg-[#09a7b3] text-white p-5 rounded-xl shadow-md mb-4">
+            {% comment %} <p class="font-bold">Total Balance</p> {% endcomment %}
+            <p class="font-bold">You have successfully recharged 1000 USDT to you account!</p>
+            <p class="text-sm mt-1">2025-05-22, 8:07:56</p>
+        </div>
+        <div class="bg-[#09a7b3] text-white p-5 rounded-xl shadow-md">
+            {% comment %} <p class="font-bold">Total Balance</p> {% endcomment %}
+            <p class="font-bold">You have successfully recharged 1000 USDT to you account!</p>
+            <p class="text-sm mt-1">2025-05-22, 8:07:56</p>
+        </div>
+
+    </div>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/67e251340e81ec19127d887c/1in60qdvd';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+</html>
