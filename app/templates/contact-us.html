@@ -26,8 +26,11 @@
         <p class="font-bold text-xs sm:text-sm md:text-base">
             If you have any inquiries, kindly contact Customer Service!
         </p>
-        <button class="bg-blue-400 py-2 px-6 sm:px-10 md:px-20 mt-5 rounded-lg">
+        <!-- <button onclick="loadTawkChat()" class="bg-blue-400 py-2 px-6 sm:px-10 md:px-20 mt-5 rounded-lg">
             <a href="">Online Customer Service</a>
+        </button> -->
+        <button onclick="loadTawkChat()" class="bg-blue-400 py-2 px-6 sm:px-10 md:px-20 mt-5 rounded-lg text-white">
+            Contact Us
         </button>
     </div>
     
@@ -45,5 +48,35 @@
         })();
     </script> -->
     <!--End of Tawk.to Script-->
+    <script>
+        let tawkLoaded = false;
+
+        function loadTawkChat() {
+            if (tawkLoaded) {
+            if (window.Tawk_API) {
+                Tawk_API.show();
+                Tawk_API.maximize();
+            }
+            return;
+            }
+
+            tawkLoaded = true;
+
+            // Create and inject the Tawk.to script
+            var s1 = document.createElement("script");
+            s1.src = 'https://embed.tawk.to/67e251340e81ec19127d887c/1in60qdvd';
+            s1.async = true;
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            document.head.appendChild(s1);
+
+            // When the script loads, open the chat
+            s1.onload = function() {
+            if (window.Tawk_API) {
+                Tawk_API.maximize();
+            }
+            };
+        }
+    </script>
 </body>
 </html>
