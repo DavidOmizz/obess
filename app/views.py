@@ -2,9 +2,9 @@
 # Create your views here.
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
-
+from django.contrib import messages
 # Register View
 # def register(request):
 #     if request.method == "POST":
@@ -138,17 +138,17 @@ def dashboard(request):
     except Wallet.DoesNotExist:
         balance = 0  # Default to 0 if no wallet exists
     
-    products = [
-        {"name": "Product 1", "price": "$10", "image": "https://via.placeholder.com/150"},
-        {"name": "Product 2", "price": "$15", "image": "https://via.placeholder.com/150"},
-        {"name": "Product 3", "price": "$20", "image": "https://via.placeholder.com/150"},
-        {"name": "Product 4", "price": "$25", "image": "https://via.placeholder.com/150"},
-        {"name": "Product 5", "price": "$30", "image": "https://via.placeholder.com/150"},
-        {"name": "Product 6", "price": "$35", "image": "https://via.placeholder.com/150"},
-        {"name": "Product 7", "price": "$40", "image": "https://via.placeholder.com/150"},
-        {"name": "Product 8", "price": "$45", "image": "https://via.placeholder.com/150"},
-        {"name": "Product 9", "price": "$50", "image": "https://via.placeholder.com/150"},
-    ]
+    # products1 = [
+    #     {"name": "Product 1", "price": "$10", "image": "https://via.placeholder.com/150"},
+    #     {"name": "Product 2", "price": "$15", "image": "https://via.placeholder.com/150"},
+    #     {"name": "Product 3", "price": "$20", "image": "https://via.placeholder.com/150"},
+    #     {"name": "Product 4", "price": "$25", "image": "https://via.placeholder.com/150"},
+    #     {"name": "Product 5", "price": "$30", "image": "https://via.placeholder.com/150"},
+    #     {"name": "Product 6", "price": "$35", "image": "https://via.placeholder.com/150"},
+    #     {"name": "Product 7", "price": "$40", "image": "https://via.placeholder.com/150"},
+    #     {"name": "Product 8", "price": "$45", "image": "https://via.placeholder.com/150"},
+    #     {"name": "Product 9", "price": "$50", "image": "https://via.placeholder.com/150"},
+    # ]
     
     return render(request, "dashboard.html", {"user": request.user, "products": products, "balance": balance})
 
@@ -186,7 +186,10 @@ def edit_profile(request):
 
 
 def products(request):
-    return render(request, 'products.html', {"user": request.user})
+    products = Product.objects.filter(is_available=True).order_by('name')
+    product3 = Product.objects.all()
+    context = {'products': products,"user": request.user}
+    return render(request, 'products.html', context)
 
 def contact(request):
     return render(request, 'contact-us.html', {"user": request.user})
@@ -199,3 +202,158 @@ def withdrawInformation(request):
 
 def notification(request):
     return render(request, 'notifications.html', {"user": request.user})
+
+
+from django.contrib import messages
+# --- Product Views (Unchanged) ---
+def product_list(request):
+    products = Product.objects.filter(is_available=True).order_by('name')
+    context = {'products': products}
+    return render(request, 'product_list.html', context)
+
+def product_detail(request, pk):
+    product = get_object_or_404(Product, pk=pk, is_available=True)
+    context = {'product': product}
+    return render(request, 'product_detail.html', context)
+
+# --- Cart Views (Unchanged) ---
+@login_required
+def add_to_cart(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    cart, created = Cart.objects.get_or_create(user=request.user)
+
+    cart_item, item_created = CartItem.objects.get_or_create(
+        cart=cart,
+        product=product,
+        defaults={'quantity': 1}
+    )
+
+    if not item_created:
+        cart_item.quantity += 1
+        cart_item.save()
+        messages.info(request, f'Increased quantity of {product.name} in your cart.')
+    else:
+        messages.success(request, f'{product.name} added to your cart!')
+
+    return redirect('view_cart')
+
+@login_required
+def view_cart(request):
+    try:
+        cart = Cart.objects.get(user=request.user)
+        cart_items = cart.items.all()
+    except Cart.DoesNotExist:
+        cart = None
+        cart_items = []
+    context = {
+        'cart': cart,
+        'cart_items': cart_items,
+    }
+    return render(request, 'cart.html', context)
+
+@login_required
+def update_cart_item(request, cart_item_id):
+    cart_item = get_object_or_404(CartItem, id=cart_item_id, cart__user=request.user)
+    if request.method == 'POST':
+        try:
+            quantity = int(request.POST.get('quantity', 1))
+            if quantity <= 0:
+                cart_item.delete()
+                messages.info(request, f'Removed {cart_item.product.name} from your cart.')
+            else:
+                # Optional: Check if quantity exceeds stock
+                # if quantity > cart_item.product.stock:
+                #     messages.error(request, f"Not enough stock for {cart_item.product.name}. Only {cart_item.product.stock} available.")
+                #     return redirect('view_cart')
+
+                cart_item.quantity = quantity
+                cart_item.save()
+                messages.success(request, f'Updated quantity for {cart_item.product.name}.')
+        except ValueError:
+            messages.error(request, 'Invalid quantity.')
+    return redirect('view_cart')
+
+@login_required
+def remove_from_cart(request, cart_item_id):
+    cart_item = get_object_or_404(CartItem, id=cart_item_id, cart__user=request.user)
+    product_name = cart_item.product.name
+    cart_item.delete()
+    messages.warning(request, f'Removed {product_name} from your cart.')
+    return redirect('view_cart')
+
+# --- Modified Checkout View ---
+@login_required
+# @transaction.atomic # Ensures all database operations succeed or fail together
+def checkout(request):
+    try:
+        cart = Cart.objects.get(user=request.user)
+        cart_items = cart.items.all()
+    except Cart.DoesNotExist:
+        messages.error(request, "Your cart is empty.")
+        return redirect('product_list')
+
+    if not cart_items:
+        messages.error(request, "Your cart is empty.")
+        return redirect('product_list')
+
+    total_cart_price = cart.total_price
+
+    # Check if user has a wallet and sufficient balance
+    try:
+        wallet = request.user.wallet
+    except Wallet.DoesNotExist:
+        messages.error(request, "You do not have a wallet. Please contact support.")
+        return redirect('view_cart')
+
+    if wallet.balance < total_cart_price:
+        messages.error(request, f"Insufficient balance. Your balance: ${wallet.balance:.2f}, Required: ${total_cart_price:.2f}")
+        return redirect('view_cart')
+
+    # Optional: Check product stock before processing
+    for item in cart_items:
+        if item.quantity > item.product.stock:
+            messages.error(request, f"Not enough stock for {item.product.name}. Only {item.product.stock} available.")
+            return redirect('view_cart')
+
+    if request.method == 'POST':
+        # Assuming simple confirmation, no complex forms for now
+        # You might want to add withdrawal_pin verification here
+        # Example for PIN verification (if you hashed it, you'd use check_password):
+        # from django.contrib.auth.hashers import check_password
+        # entered_pin = request.POST.get('withdrawal_pin')
+        # if not check_password(entered_pin, request.user.withdrawal_pin):
+        #     messages.error(request, "Incorrect withdrawal PIN.")
+        #     return render(request, 'shop/checkout.html', {'cart': cart, 'cart_items': cart_items, 'total_cart_price': total_cart_price, 'wallet_balance': wallet.balance})
+
+        try:
+            # 1. Deduct from wallet balance
+            wallet.balance -= total_cart_price
+            wallet.save()
+
+            # 2. Optionally, reduce product stock
+            for item in cart_items:
+                item.product.stock -= item.quantity
+                item.product.save()
+
+            # 3. Clear the user's cart
+            cart_items.delete() # Deletes all cart items associated with this cart
+
+            messages.success(request, "Your purchase has been completed successfully!")
+            return redirect('purchase_successful') # Redirect to new success page
+
+        except Exception as e:
+            messages.error(request, f"An error occurred during purchase: {e}")
+            return redirect('view_cart')
+
+    context = {
+        'cart': cart,
+        'cart_items': cart_items,
+        'total_cart_price': total_cart_price,
+        'wallet_balance': wallet.balance,
+    }
+    return render(request, 'checkout.html', context)
+
+# New simple purchase success view
+@login_required
+def purchase_successful(request):
+    return render(request, 'purchase_successful.html')

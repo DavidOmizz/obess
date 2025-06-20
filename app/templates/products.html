@@ -164,7 +164,7 @@
         </div>
     </div> -->
     
-    <div class="flex justify-center items-center bg-gray-100 mx-3 md:mx-0" style="margin-top: 80px;">
+    <!-- <div class="flex justify-center items-center bg-gray-100 mx-3 md:mx-0" style="margin-top: 80px;">
         <div class="rounded-2xl max-w-[410px] w-full">
             
             <div class="grid grid-cols-3 gap-3 sm:gap-5 mb-4">
@@ -204,12 +204,151 @@
             </div>
     
         </div>
+    </div> -->
+
+     <!-- <div class="flex justify-center items-center bg-gray-100 mx-3 md:mx-0" style="margin-top: 20px; padding-bottom: 20px;">
+        {# Inner container for max width and rounded corners #}
+        <div class="rounded-2xl max-w-[450px] w-full p-4"> {# Added p-4 for padding inside this wrapper #}
+
+            {# Grid container for products #}
+            <div class="grid grid-cols-3 gap-3 sm:gap-5 mb-4">
+                {% for product in products %}
+                    {# Each product card - mimicking the 'a' tag style but as a div #}
+                    <div class="bg-white p-3 rounded-lg shadow-md flex flex-col items-center hover:shadow-lg transition">
+                        {# Link for image and name to the product detail page #}
+                        <a href="{% url 'product_detail' product.pk %}" class="flex flex-col items-center text-center">
+                            {% if product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-[30px] sm:w-20 object-cover rounded-md mb-2">
+                            {% else %}
+                                <img src="https://via.placeholder.com/64x64?text=No+Image" alt="No Image" class="w-16 sm:w-20 object-cover rounded-md mb-2">
+                            {% endif %}
+                            <h3 class="text-sm font-semibold mt-1 text-gray-800 hover:text-blue-600">{{ product.name }}</h3>
+                        </a>
+                        <p class="text-xs text-gray-600">${{ product.price|floatformat:2 }}</p>
+                        
+                        {# Add to Cart Button (retains form for functionality) #}
+                        {% if product.stock > 0 and product.is_available %}
+                            <form action="{% url 'add_to_cart' product.id %}" method="post" class="mt-2">
+                                {% csrf_token %}
+                                <button type="submit" class="btn text-xs py-1 px-2">Add</button>
+                            </form>
+                        {% else %}
+                            <p class="text-red-500 text-xs mt-2">Out of Stock</p>
+                        {% endif %}
+                    </div>
+                {% empty %}
+                    <p class="col-span-3 text-center text-gray-600">No products available yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div> -->
+
+     {# Outer container for centering and background #}
+    <!-- <div class="flex justify-center items-center bg-gray-100 mx-3 md:mx-0 mb-[150px]" style="margin-top: 20px; padding-bottom: 20px;">
+        {# Inner container for max width and rounded corners #}
+        <div class="rounded-2xl max-w-[450px] w-full p-4"> {# Added p-4 for padding inside this wrapper #}
+
+            {# Grid container for products #}
+            <div class="grid grid-cols-3 gap-3 sm:gap-5 mb-4">
+                {% for product in products %}
+                    {# Each product card - now a form that submits on click #}
+                    {% if product.stock > 0 and product.is_available %}
+                        <form action="{% url 'add_to_cart' product.id %}" method="post" class="
+                            bg-white p-3 rounded-lg shadow-md flex flex-col items-center hover:shadow-lg transition
+                            cursor-pointer relative overflow-hidden group
+                        ">
+                            {% csrf_token %}
+                            {# Make the entire card visually clickable #}
+                            <button type="submit" class="
+                                absolute inset-0 w-full h-full bg-transparent border-none
+                                cursor-pointer z-10 opacity-0 group-hover:opacity-100 transition-opacity
+                            " aria-label="Add {{ product.name }} to cart"></button>
+
+                            {% if product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-[30px] sm:w-[50px] object-cover rounded-md mb-2">
+                            {% else %}
+                                <img src="https://via.placeholder.com/64x64?text=No+Image" alt="No Image" class="w-[30px] sm:w-20 object-cover rounded-md mb-2">
+                            {% endif %}
+                            <h3 class="text-sm font-semibold mt-1 text-gray-800">{{ product.name }}</h3>
+                            <p class="text-xs text-gray-600">${{ product.price|floatformat:2 }}</p>
+                            {# Optional: A small "Add" text could appear on hover if you want more explicit feedback #}
+                            <span class="absolute bottom-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity bg-blue-500 text-white px-2 py-1 rounded">Add</span>
+                        </form>
+                    {% else %}
+                        {# Display for out of stock products, not clickable #}
+                        <div class="bg-white p-3 rounded-lg shadow-md flex flex-col items-center opacity-60 cursor-not-allowed">
+                            {% if product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-[30px] sm:w-20 object-cover rounded-md mb-2">
+                            {% else %}
+                                <img src="https://via.placeholder.com/64x64?text=No+Image" alt="No Image" class="w-16 sm:w-20 object-cover rounded-md mb-2">
+                            {% endif %}
+                            <h3 class="text-sm font-semibold mt-1 text-gray-800">{{ product.name }}</h3>
+                            <p class="text-xs text-gray-600">${{ product.price|floatformat:2 }}</p>
+                            <p class="text-red-500 text-xs mt-2">Out of Stock</p>
+                        </div>
+                    {% endif %}
+                {% empty %}
+                    <p class="col-span-3 text-center text-gray-600">No products available yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div> -->
+
+    <div class="flex justify-center items-center bg-gray-100 mx-3 md:mx-0 mb-[150px]" style="margin-top: 20px; padding-bottom: 20px;">
+    {# Inner container for max width and rounded corners #}
+    <div class="rounded-2xl max-w-[450px] w-full p-4"> {# Added p-4 for padding inside this wrapper #}
+
+        {# Grid container for products #}
+        <div class="grid grid-cols-3 gap-3 sm:gap-5 mb-4">
+            {% for product in products %}
+                {# Each product card - now a form that submits on click #}
+                {% if product.stock > 0 and product.is_available %}
+                    <form action="{% url 'add_to_cart' product.id %}" method="post" class="
+                        bg-white p-3 rounded-lg shadow-md flex flex-col items-center hover:shadow-lg transition
+                        cursor-pointer relative overflow-hidden group
+                    ">
+                        {% csrf_token %}
+                        {# Make the entire card visually clickable #}
+                        <button type="submit" class="
+                            absolute inset-0 w-full h-full bg-transparent border-none
+                            cursor-pointer z-10 opacity-0 group-hover:opacity-100 transition-opacity
+                        " aria-label="Add {{ product.name }} to cart"></button>
+
+                        {% if product.image %}
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-[64px] h-[64px] object-cover rounded-md mb-2 sm:w-[50px] sm:h-[50px]"> {# Adjusted mobile size, preserved sm #}
+                        {% else %}
+                            <img src="https://via.placeholder.com/64x64?text=No+Image" alt="No Image" class="w-[64px] h-[64px] object-cover rounded-md mb-2 sm:w-20 sm:h-20"> {# Adjusted mobile size, preserved sm #}
+                        {% endif %}
+                        <h3 class="text-sm font-semibold mt-1 text-gray-800">{{ product.name }}</h3>
+                        <p class="text-xs text-gray-600">${{ product.price|floatformat:2 }}</p>
+                        {# Optional: A small "Add" text could appear on hover if you want more explicit feedback #}
+                        <span class="absolute bottom-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity bg-blue-500 text-white px-2 py-1 rounded">Add</span>
+                    </form>
+                {% else %}
+                    {# Display for out of stock products, not clickable #}
+                    <div class="bg-white p-3 rounded-lg shadow-md flex flex-col items-center opacity-60 cursor-not-allowed">
+                        {% if product.image %}
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-[64px] h-[64px] object-cover rounded-md mb-2 sm:w-20 sm:h-20"> {# Adjusted mobile size, preserved sm #}
+                        {% else %}
+                            <img src="https://via.placeholder.com/64x64?text=No+Image" alt="No Image" class="w-[64px] h-[64px] object-cover rounded-md mb-2 sm:w-20 sm:h-20"> {# Adjusted mobile size, preserved sm #}
+                        {% endif %}
+                        <h3 class="text-sm font-semibold mt-1 text-gray-800">{{ product.name }}</h3>
+                        <p class="text-xs text-gray-600">${{ product.price|floatformat:2 }}</p>
+                        <p class="text-red-500 text-xs mt-2">Out of Stock</p>
+                    </div>
+                {% endif %}
+            {% empty %}
+                <p class="col-span-3 text-center text-gray-600">No products available yet.</p>
+            {% endfor %}
+        </div>
     </div>
+    </div>
+
     
 
-    <div class="flex justify-center mb-[150px] w-full">
+    <!-- <div class="flex justify-center mb-[150px] w-full">
         <button type="submit" class="bg-[#09a7b3] text-white py-3 font-bold px-[30px] md:px-[300px] rounded-lg">Start matching products (12/45)</button>
-    </div>
+    </div> -->
 
     <footer class="fixed bottom-0 left-0 w-full bg-white p-2 flex justify-around items-center z-50" style="margin-top: -200px;">
         <!-- <div class="flex flex-col items-center">

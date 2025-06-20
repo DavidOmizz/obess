@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}{{ product.name }} - My Shop{% endblock %}
+
+</head>
+<body>
+     {# Django Messages Framework Display #}
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <h1>{{ product.name }}</h1>
+    <div style="display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px;">
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" style="max-width: 100%; height: auto; border-radius: 8px;">
+            {% else %}
+                <img src="https://via.placeholder.com/400?text=No+Image" alt="No Image" style="max-width: 100%; height: auto; border-radius: 8px;">
+            {% endif %}
+        </div>
+        <div style="flex: 2; min-width: 400px;">
+            <p><strong>Price:</strong> ${{ product.price|floatformat:2 }}</p>
+            <p><strong>Description:</strong></p>
+            <p>{{ product.description|linebreaksbr }}</p>
+            <p><strong>Stock:</strong> {{ product.stock }} available</p>
+
+            {% if product.stock > 0 and product.is_available %}
+                <form action="{% url 'add_to_cart' product.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn">Add to Cart</button>
+                </form>
+            {% else %}
+                <p style="color: red; font-weight: bold;">Out of Stock / Not Available</p>
+            {% endif %}
+            <p style="margin-top: 20px;"><a href="{% url 'products' %}" class="btn btn-secondary">Back to Products</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     {# Django Messages Framework Display #}
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <h1>Purchase Completed!</h1>
+
+    <p>Your items have been successfully purchased from your wallet.</p>
+    <p>Thank you for your business, {{ user.username }}!</p>
+    <p>Your cart has been cleared.</p>
+
+    <p style="margin-top: 20px;">
+        <a href="{% url 'product_list' %}" class="btn">Continue Shopping</a>
+        {# You might add a link to a "My Transactions" or "Purchase History" page if you implement one later #}
+    </p>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Successful!</title>
+    
+    {# Tailwind CSS CDN - ESSENTIAL for Tailwind classes to work #}
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    {# Optional: Custom Tailwind Configuration #}
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // You can define custom colors here if needed
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 font-sans antialiased flex items-center justify-center min-h-screen">
+    <div class="max-w-md w-full mx-auto p-8 bg-white rounded-lg shadow-xl text-center">
+        {# Django Messages Framework Display (consistent styling) #}
+        {% if messages %}
+            <ul class="mb-6 rounded-lg overflow-hidden shadow-md">
+                {% for message in messages %}
+                    <li class="p-4 text-sm font-medium {% if message.tags == 'success' %}bg-green-100 text-green-700{% elif message.tags == 'error' %}bg-red-100 text-red-700{% elif message.tags == 'info' %}bg-blue-100 text-blue-700{% else %}bg-gray-100 text-gray-700{% endif %}">
+                        {{ message }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <div class="text-green-500 mb-6">
+            <svg class="mx-auto h-20 w-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+        </div>
+
+        <h1 class="text-3xl font-extrabold text-gray-900 mb-4">Purchase Completed!</h1>
+
+        <p class="text-gray-700 text-lg mb-2">Your items have been successfully purchased from your wallet.</p>
+        <p class="text-gray-700 text-lg mb-4">Thank you for your business, <strong class="font-semibold">{{ user.username }}</strong>!</p>
+        <p class="text-gray-600 text-sm mb-6">Your cart has been cleared.</p>
+
+        <a href="{% url 'products' %}" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out">
+            Continue Shopping
+        </a>
+        
+         <!-- You might add a link to a "My Transactions" or "Purchase History" page if you implement one later #
+        <p class="mt-4 text-sm text-gray-500">
+            <a href="" class="underline hover:text-gray-700">View your purchase history</a>
+        </p> -->
+    </div>
+</body>
+</html>

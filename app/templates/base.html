@@ -1,0 +1,260 @@
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Dashboard</title>
+    <style>
+        .icon-item {
+            width: 33.33%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .icon-item p {
+            margin-top: 8px;
+            color: white;
+            font-weight: 500;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+        .icon-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        /* Popup container */
+        @keyframes marquee {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+            }
+
+        .animate-marquee {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 30s linear infinite;
+            }
+
+    </style>
+</head>
+<body class="bg-gray-100 pt-16 pb-0 ">
+
+   
+   <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full shadow-md p-2 md:p-4 flex justify-between items-center bg-white z-50">
+        <div>
+            <img src="https://i.postimg.cc/FHZQV12m/new-logo.jpg" alt="Logo" class="h-8 md:h-10">
+        </div>
+        <div class="text-sm md:text-base flex items-center">
+            <!-- <a href="{% url 'logout' %}" class="text-red-500">Logout</a> -->
+            <!-- <img src="https://i.postimg.cc/mrcDgVdh/image.png" width="20" alt=""> -->
+            <!-- <img src="https://i.postimg.cc/7hnhLXDN/records-img.png" width="20" alt=""> -->
+            <i class="fa fa-book text-[#09a7b3] text-[20px] " aria-hidden="true"></i>
+            <a href="{% url 'records' %}" class="text-black ml-1 font-bold">Records</a>
+        </div>
+    </nav>
+   
+   <!-- Background Image Container -->
+    <div class="min-h-screen bg-cover bg-top p-4 md:p-6"
+        style="background-image: url('https://i.postimg.cc/MHKNtbzk/kitchen-2165756-1280.jpg'); margin-top: -10px;">
+        
+        <h1 class="font-bold text-white mt-5 text-xl">Welcome</h1>
+        <div class="flex items-center mt-2 mb-4">
+            <span class="mr-2 md:mr-4 text-white text-2xl">{{ user.username }}</span> 
+            <img src="https://i.postimg.cc/02Mw19qn/level1-1703370234.jpg" alt="" width="25" height="25">
+        </div>
+
+        <div class="container mx-auto">
+            <!-- <h2 class="text-xl md:text-2xl font-bold text-center mb-8 text-black">Quick Links</h2> -->
+            
+            <!-- Organized Icon Grid - 3 per row -->
+            <div class="icon-grid mt-20">
+                <!-- Row 1 -->
+                <div class="icon-item">
+                    <a href="{% url 'certificate' %}">
+                        <img src="https://i.postimg.cc/BQNt9hmS/certificate-img.png" width="45" height="45" alt="Certificate Logo" class="bg-[#09a7b3] text-white p-2 rounded-full">
+                    </a>
+                    <p>Certificate</p>
+                </div>
+                
+                <div class="icon-item">
+                    <a href="{% url 'deposit' %}">
+                        <img src="https://i.postimg.cc/xdNdm9n8/withdraw-img.png" width="45" height="45" alt="Withdraw Logo" class="bg-[#09a7b3] text-white p-2 rounded-full">
+                    </a>    
+                    <p>Withdraw</p>
+                </div>
+                
+                <div class="icon-item">
+                    <a href="{% url 'deposit' %}">
+                        <img src="https://i.postimg.cc/bwBJdZX4/cash-img.png" width="45" height="45" alt="Deposit Logo" class="bg-[#09a7b3] text-white p-2 rounded-full">
+                    </a>
+                    <p>Deposit</p>
+                </div>
+                
+                <!-- Row 2 -->
+                <div class="icon-item">
+                    <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <img src="https://i.postimg.cc/Cx15Fj2j/terms-img.png" width="45" height="45" alt="terms Logo" class="bg-[#09a7b3] text-white p-2 rounded-full">
+                    </a>
+                    <p>Terms</p>
+                </div>
+                
+                <div class="icon-item">
+                    <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+                        <img src="https://i.postimg.cc/hPKhYFbZ/latest-campaign-img.png" width="45" height="45" alt="Campaign Logo" class="bg-[#09a7b3] text-white p-2 rounded-full">
+                    </a>    
+                    <p>Campaign</p>
+                </div>
+                
+                <div class="icon-item">
+                    <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+                        <img src="https://i.postimg.cc/qBszQBnC/frequently-img.png" width="45" height="45" alt="Faq Logo" class="bg-[#09a7b3] text-white p-2 rounded-full">
+                    </a>
+                    <p>FAQ</p>
+                </div>
+                
+                <!-- Row 3 (just one icon) -->
+                <div class="icon-item">
+                    <a type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                        <img src="https://i.postimg.cc/kGmD9Lr4/about-us-img.png" width="45" height="45" alt="About-us Logo" class="bg-[#09a7b3] text-white p-2 rounded-full">
+                    </a>
+                    <p>About</p>
+                </div>
+            </div>
+
+            <!-- VIP level box -->
+            {% comment %} <div class="mt-30">
+                <div class="flex justify-between items-center bg-white text-black p-2 rounded-t-lg">
+                    <h2 class="font-semibold text-lg">Vip Level</h2>
+                    <a href="" class="text-blue-600">View More</a>
+                </div>
+    
+                <div class="bg-white p-3 rounded-b-lg">
+                    <div class="flex justify-center space-x-2 mb-3">
+                        <img src="https://i.postimg.cc/02Mw19qn/level1-1703370234.jpg" alt="" width="60" height="60">
+                        <img src="https://i.postimg.cc/HnK88hbb/level2-1703370550.jpg" alt="" width="60" height="60">
+                        <img src="https://i.postimg.cc/59kCr6Dj/level3-1703370691.jpg" alt="" width="60" height="60">
+                        <img src="https://i.postimg.cc/rFBt87Vk/level4-1703370829.jpg" alt="" width="60" height="60">
+                        <img src="https://i.postimg.cc/Bbt160Pq/premium-user-1723759153.jpg" alt="" width="40" height="40">
+                    </div>
+                    <p class="text-sm">
+                        <strong>Normal users receive general purpose data collection access.</strong>
+                    </p>
+                </div>
+            </div> {% endcomment %}
+
+             <!-- VIP level box - Full width on mobile -->
+             <div class="flex justify-center items-center mb-6 md:mb-50 mt-[30px]">
+                <div class="w-sm md:w-2/5 bg-white text-black shadow-md p-3 md:p-4 rounded-lg">
+                    <div class="flex justify-between items-center text-sm md:text-base">
+                        <h2 class="font-bold text-2xl">Vip Level</h2>
+                        <a href="{% url 'viplevel' %}" class="text-[#09a7b3]">View More</a>
+                    </div>
+    
+                    <div class="flex flex-wrap justify-center md:justify-start mt-3">
+                        <img src="https://i.postimg.cc/02Mw19qn/level1-1703370234.jpg" alt="" width="56" height="30" class="m-2 md:m-3">
+                        <img src="https://i.postimg.cc/HnK88hbb/level2-1703370550.jpg" alt="" width="56" height="30" class="m-2 md:m-3">
+                        <img src="https://i.postimg.cc/59kCr6Dj/level3-1703370691.jpg" alt="" width="56" height="30" class="m-2 md:m-3">
+                        <img src="https://i.postimg.cc/rFBt87Vk/level4-1703370829.jpg" alt="" width="56" height="30" class="m-2 md:m-3">
+                        <img src="https://i.postimg.cc/Bbt160Pq/premium-user-1723759153.jpg" alt="" width="40" height="40" class="m-2 md:m-3">
+                    </div>
+                    <p class="text-[14px] md:text-[14px] mt-10"><strong>
+                        Normal users receive general purpose data collection access.
+                        <br>
+                        ● Suitable for most data capture scenarios involving light to medium usage
+                        <br>
+                        ● Profit of 0.5% per product -40 tasks per set
+                        <br>
+                        ● Up to 120 optimise tasks per day
+                        <br>
+                        ● No access to other Premium features 
+                    </strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-8 p-2 md:p-4 text-center text-sm md:text-base" style="margin-bottom: 150px;">
+            <p>&copy; 2024 MyCompany. All rights reserved.</p>
+        </div>
+    </div>
+   
+   
+   <footer class="fixed bottom-0 left-0 w-full bg-white p-2 flex justify-around items-center z-50" style="margin-top: -200px;">
+        <!-- <div class="flex flex-col items-center">
+            <img src="https://i.postimg.cc/0QmrTPBF/home-img.png" width="40" height="40" alt="" class="text-white rounded-full">
+            <p><a href="{% url 'dashboard' %}">Home</a></p>
+        </div>
+        <div class="">
+            <img src="https://i.postimg.cc/hjFtbNtr/bamboo-img.png" width="70" height="70" alt="" class="bg-green-600 text-white p-3 rounded-full" style="margin-top: -50px;">
+            <p><a href="{% url 'products' %}">Submission</a></p>
+        </div>
+        <div class="flex flex-col items-center">
+            <img src="https://i.postimg.cc/7hnhLXDN/records-img.png" width="40" height="40" alt="" class="text-white rounded-full">
+            <p><a href="{% url 'records' %}">Records</a></p>
+        </div> -->
+        <div class="flex justify-around items-center w-full">
+          <a href="{% url 'dashboard' %}" class="flex flex-col items-center hover:opacity-80 transition">
+              <!-- <img src="https://i.postimg.cc/0QmrTPBF/home-img.png" width="40" height="40" alt="" class="text-white rounded-full"> -->
+              <i class="fa fa-home text-[#09a7b3] text-[35px]" aria-hidden="true"></i>
+              <p>Home</p>
+          </a>
+      
+          <a href="{% url 'products' %}" class="flex flex-col items-center hover:opacity-80 transition">
+              <img src="https://i.postimg.cc/hjFtbNtr/bamboo-img.png" width="70" height="70" alt="" class="bg-[#09a7b3] text-white p-3 rounded-full" style="margin-top: -50px;">
+              <p>Starting</p>
+          </a>
+      
+          <!-- <a href="{% url 'records' %}" class="flex flex-col items-center hover:opacity-80 transition">
+              <img src="https://i.postimg.cc/7hnhLXDN/records-img.png" width="40" height="40" alt="" class="text-white rounded-full">
+              <p>Records</p>
+          </a> -->
+          <a href="{% url 'profile' %}" class="flex flex-col items-center hover:opacity-80 transition">
+            <!-- <img src="https://i.postimg.cc/7hnhLXDN/records-img.png" width="40" height="40" alt="" class="text-white rounded-full"> -->
+            <!-- <img src="https://i.postimg.cc/mrcDgVdh/image.png" width="40" height="40" alt="" class="text-white rounded-full"> -->
+            <i class="fa fa-user text-[#09a7b3] text-[35px] aria-hidden="true"></i>
+            <p>Mine</p>
+        </a>
+      </div>
+    </footer>
+
+   <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let popup = document.getElementById("popup");
+            let closePopup = document.getElementById("closePopup");
+
+            // Show the popup when the page loads (simulate user login)
+            popup.style.display = "flex";
+
+            // Hide the popup when the close button is clicked
+            closePopup.addEventListener("click", function () {
+                popup.style.display = "none";
+            });
+        });
+
+    </script>
+
+    <!--Start of Tawk.to Script-->
+    <!-- <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/67e251340e81ec19127d887c/1in60qdvd';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script> -->
+    <!--End of Tawk.to Script-->
+</body>
+</html>
