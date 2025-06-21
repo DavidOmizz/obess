@@ -15,7 +15,16 @@
         </a>
         <h3 class="text-white font-bold">Contact</h3>
     </div>
-
+     {# Django Messages Framework Display #}
+        {% if messages %}
+            <ul class="mb-6 rounded-lg overflow-hidden shadow-md">
+                {% for message in messages %}
+                    <li class="p-4 text-sm font-medium {% if message.tags == 'success' %}bg-green-100 text-green-700{% elif message.tags == 'error' %}bg-red-100 text-red-700{% elif message.tags == 'info' %}bg-blue-100 text-blue-700{% else %}bg-gray-100 text-gray-700{% endif %}">
+                        {{ message }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
     <div class="text-center bg-[#09a7b3] bg-opacity-50 mx-auto max-w-[1300px] w-full px-4 sm:px-6 md:px-10 lg:px-16 mt-10 p-8 sm:p-10 md:p-16 rounded-xl shadow-md text-white">
         <h1 class="font-bold text-2xl sm:text-3xl md:text-4xl text-white">ThirdRetail</h1>
         <div class="flex justify-center items-center mt-4">

@@ -306,8 +306,9 @@ def checkout(request):
         return redirect('view_cart')
 
     if wallet.balance < total_cart_price:
-        messages.error(request, f"Insufficient balance. Your balance: ${wallet.balance:.2f}, Required: ${total_cart_price:.2f}")
-        return redirect('view_cart')
+        messages.error(request, f"Insufficient balance. Your balance: ${wallet.balance:.2f}, Required: ${total_cart_price:.2f}. Contact customer support to add funds.")
+        # return redirect('view_cart')
+        return redirect('contact')
 
     # Optional: Check product stock before processing
     for item in cart_items:
