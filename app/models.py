@@ -75,33 +75,34 @@ class CartItem(models.Model):
 # --- Optional: Order and OrderItem models for after checkout ---
 # You might want these to store historical orders and manage order statuses.
 
-# class Order(models.Model):
-#     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="orders")
-#     total_amount = models.DecimalField(max_digits=10, decimal_places=2)
-#     created_at = models.DateTimeField(auto_now_add=True)
-#     updated_at = models.DateTimeField(auto_now=True)
-#     status_choices = [
-#         ('pending', 'Pending'),
-#         ('processing', 'Processing'),
-#         ('shipped', 'Shipped'),
-#         ('delivered', 'Delivered'),
-#         ('cancelled', 'Cancelled'),
-#     ]
-#     status = models.CharField(max_length=20, choices=status_choices, default='pending')
-#     # You might add fields like shipping address, payment method, etc.
+class Order(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="orders")
+    total_amount = models.DecimalField(max_digits=10, decimal_places=2)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    status_choices = [
+        ('pending', 'Pending'),
+        ('processing', 'Processing'),
+        ('shipped', 'Shipped'),
+        ('delivered', 'Delivered'),
+        ('cancelled', 'Cancelled'),
+    ]
+    status = models.CharField(max_length=20, choices=status_choices, default='pending')
+    # You might add fields like shipping address, payment method, etc.
 
-#     def __str__(self):
-#         return f"Order #{self.id} by {self.user.username}"
+    def __str__(self):
+        return f"Order #{self.id} by {self.user.username}"
 
-# class OrderItem(models.Model):
-#     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="items")
-#     product = models.ForeignKey(Product, on_delete=models.PROTECT) # Don't delete product if it's part of an order
-#     quantity = models.PositiveIntegerField()
-#     price_at_purchase = models.DecimalField(max_digits=10, decimal_places=2) # Store price at the time of purchase
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="items")
+    product = models.ForeignKey(Product, on_delete=models.PROTECT) # Don't delete product if it's part of an order
+    product_name = models.CharField(max_length=255, default='') # Added: Store name for display resilience
+    quantity = models.PositiveIntegerField()
+    price_at_purchase = models.DecimalField(max_digits=10, decimal_places=2) # Store price at the time of purchase
 
-#     def __str__(self):
-#         return f"{self.quantity} x {self.product.name} in Order #{self.order.id}"
+    def __str__(self):
+        return f"{self.quantity} x {self.product.name} in Order #{self.order.id}"
 
-#     @property
-#     def total_item_price(self):
-#         return self.quantity * self.price_at_purchase
+    @property
+    def total_item_price(self):
+        return self.quantity * self.price_at_purchase

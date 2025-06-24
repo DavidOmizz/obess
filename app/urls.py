@@ -27,4 +27,5 @@ urlpatterns = [
     path('checkout/', views.checkout, name='checkout'),
     # Removed: path('order-success/<int:order_id>/', views.order_success, name='order_success'),
     path('purchase-successful/', views.purchase_successful, name='purchase_successful'), # New success page
+    path('order-history/', views.purchase_history, name='order_history'),
 ]
