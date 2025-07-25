@@ -1,0 +1,32 @@
+name: Django CI with Virtualenv
+
+on:
+  push:
+    branches: [ dev ]           # <-- Run CI on dev branch only
+  pull_request:
+    branches: [ dev ]           # <-- Run CI on PRs targeting dev
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'  # or your Python version
+
+      - name: 🔧 Create and activate virtual environment, install dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🧪 Run Django tests inside virtual environment
+        run: |
+          source venv/bin/activate
+          python manage.py test
