@@ -2,9 +2,9 @@ name: Django CI with Virtualenv
 
 on:
   push:
-    branches: [ dev ]           # <-- Run CI on dev branch only
+    branches: [ dev, master ]
   pull_request:
-    branches: [ dev ]           # <-- Run CI on PRs targeting dev
+    branches: [ dev, master ]
 
 jobs:
   test:
